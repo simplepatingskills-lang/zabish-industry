@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover beauty essentials and modern men's fashion at Zabish Industry." />
+  <meta name="theme-color" content="#030914" />
+  <title>Zabish Industry | Beauty & Fashion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="announcement">
+    <span>✦ Worldwide shipping</span><span class="announcement-separator">|</span>
+    <span>Free shipping on orders over $50</span>
+    <div class="announcement-right"><span>Track Order</span><span>|</span><span>Help</span><span>|</span><label class="currency-label" for="currency">Currency</label><select id="currency" aria-label="Choose currency"><option value="USD">USD $</option><option value="GBP">GBP £</option><option value="EUR">EUR €</option><option value="PKR">PKR Rs.</option></select></div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Zabish Industry home">
+      <span class="brand-mark">Z</span><span class="brand-text">ZABISH<small>INDUSTRY</small></span>
+    </a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a class="active" href="#home">Home</a>
+      <a href="#categories">Shop Categories</a>
+      <a href="#beauty">Beauty Tools</a>
+      <a href="#fashion">Men's Clothing</a>
+      <a href="#about">Our Story</a>
+      <a href="#footer">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <form class="search-box" id="searchForm" role="search">
+        <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products" />
+        <button type="submit" aria-label="Search">⌕</button>
+      </form>
+      <button class="icon-button account-button" aria-label="Account" title="Account">♙</button>
+      <button class="icon-button" id="wishlistToggle" aria-label="Show wishlist" title="Wishlist">♡<span class="count" id="wishlistCount">0</span></button>
+      <button class="icon-button cart-trigger" id="cartToggle" aria-label="Open cart" title="Shopping cart">🛒<span class="count" id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-image hero-beauty" role="img" aria-label="Beauty products and makeup brushes"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">ZABISH INDUSTRY PRESENTS</p>
+        <h1>Beauty Tools &amp; Men’s Clothing<br><em>for a Better You</em></h1>
+        <p class="hero-description">Professional beauty tools and timeless men’s clothing, selected for everyday use and international customers.</p>
+        <div class="hero-buttons"><a class="button button-blue" href="#beauty">Shop Beauty Tools <span>→</span></a><a class="button button-outline" href="#fashion">Shop Men’s Clothing <span>→</span></a></div>
+        <div class="hero-trust"><span>◇ <small>Quality-first products</small></span><span>▣ <small>Secure shopping</small></span><span>↗ <small>Worldwide delivery</small></span></div>
+      </div>
+      <div class="hero-image hero-fashion" role="img" aria-label="Men's leather jacket and fashion"></div>
+      <button class="hero-arrow hero-prev" aria-label="Previous banner">‹</button><button class="hero-arrow hero-next" aria-label="Next banner">›</button>
+      <div class="hero-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+    </section>
+
+    <section class="category-strip main-category-strip" id="categories" aria-label="Shop our two main categories">
+      <a class="main-category-card" href="#beauty"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=85" alt="Beauty tools collection" loading="lazy"><span class="main-category-overlay"><small>DEPARTMENT 01</small><strong>Beauty Tools</strong><em>Tweezers · Hair scissors · Nail tools</em><b>Explore beauty tools →</b></span></a>
+      <a class="main-category-card" href="#fashion"><img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=85" alt="Men's clothing collection" loading="lazy"><span class="main-category-overlay"><small>DEPARTMENT 02</small><strong>Men’s Clothing</strong><em>Leather jackets · Hoodies · Trousers</em><b>Explore men’s clothing →</b></span></a>
+    </section>
+
+    <section class="feature-section section-wrap" id="beauty">
+      <div class="feature-copy">
+        <p class="eyebrow">DEPARTMENT 01 · BEAUTY TOOLS</p><h2>Small Tools<br><em>Big Confidence</em></h2>
+        <p>Practical grooming and beauty tools: tweezers, hair scissors, nail clippers, cuticle tools and makeup brushes.</p>
+        <a class="button button-outline" href="#beautyProducts">Shop Beauty Tools <span>→</span></a>
+      </div>
+      <div class="feature-photo beauty-feature-photo" role="img" aria-label="Beauty collection"></div>
+      <div class="feature-benefits">
+        <div><span class="benefit-icon">✧</span><p><strong>Beauty essentials</strong><small>Everyday favourites</small></p></div>
+        <div><span class="benefit-icon">♧</span><p><strong>Thoughtful selection</strong><small>Products for your routine</small></p></div>
+        <div><span class="benefit-icon">♡</span><p><strong>Feel your best</strong><small>Confidence in every detail</small></p></div>
+      </div>
+    </section>
+
+    <section class="products-section section-wrap" id="beautyProducts">
+      <div class="section-heading"><div><p class="eyebrow">DISCOVER YOUR FAVOURITES</p><h2>Best-Selling Beauty Tools</h2></div><a href="#categories" class="text-link">View all beauty →</a></div>
+      <div class="product-grid" id="beautyGrid"></div>
+    </section>
+
+    <section class="fashion-banner section-wrap" id="fashion">
+      <div class="fashion-banner-copy"><p class="eyebrow">DEPARTMENT 02 · MEN’S CLOTHING</p><h2>Style Made to Last</h2><p>Leather jackets, hoodies, trousers and everyday essentials for modern men.</p><a class="button button-blue" href="#fashionProducts">Shop Men’s Clothing <span>→</span></a></div>
+      <div class="fashion-banner-image" role="img" aria-label="Men's leather jacket collection"></div>
+      <div class="fashion-perks"><div><span>✦</span><strong>Modern styles</strong><small>Made for every day</small></div><div><span>◇</span><strong>Comfort first</strong><small>Easy-to-wear fits</small></div><div><span>↗</span><strong>Worldwide delivery</strong><small>Shipping options at checkout</small></div></div>
+    </section>
+
+    <section class="products-section section-wrap" id="fashionProducts">
+      <div class="section-heading"><div><p class="eyebrow">MADE TO BE WORN</p><h2>Best-Selling Men’s Clothing</h2></div><a href="#categories" class="text-link">View all fashion →</a></div>
+      <div class="product-grid" id="fashionGrid"></div>
+    </section>
+
+    <section class="promise-strip">
+      <div><span class="promise-icon">◎</span><p><strong>Worldwide shipping</strong><small>Available destinations vary</small></p></div>
+      <div><span class="promise-icon">♢</span><p><strong>Secure checkout</strong><small>Protected payment providers</small></p></div>
+      <div><span class="promise-icon">↻</span><p><strong>Easy returns</strong><small>See our return policy</small></p></div>
+      <div class="newsletter"><span class="promise-icon">✉</span><div><strong>Join our newsletter</strong><small>New arrivals and occasional offers.</small></div><form id="newsletterForm"><input id="newsletterEmail" type="email" placeholder="Your email address" required aria-label="Your email address"><button type="submit">Subscribe</button></form></div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-main">
+      <div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">Z</span><span class="brand-text">ZABISH<small>INDUSTRY</small></span></a><p>Beauty Tools · Men’s Clothing</p><div class="social-links"><a href="#footer" aria-label="Instagram">ig</a><a href="#footer" aria-label="Facebook">f</a><a href="#footer" aria-label="TikTok">♪</a><a href="#footer" aria-label="Pinterest">p</a></div></div>
+      <div><h3>Explore</h3><a href="#home">Home</a><a href="#beauty">Beauty</a><a href="#fashion">Men's Fashion</a><a href="#about">Our Story</a></div>
+      <div><h3>Customer care</h3><a href="#footer">Shipping information</a><a href="#footer">Returns &amp; refunds</a><a href="#footer">Privacy policy</a><a href="#footer">FAQs</a></div>
+      <div><h3>Shopping with confidence</h3><p>Clear product details, helpful support and transparent delivery information.</p><div class="payment-logos"><span>VISA</span><span>MC</span><span>PayPal</span><span>G Pay</span></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Zabish Industry. All rights reserved.</span><span>Beauty Tools · Men’s Clothing</span></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-heading"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your Cart <span id="drawerCount">(0)</span></h2></div><button class="close-drawer" id="closeCart" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-bottom"><div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div><p>Shipping and taxes are calculated at checkout.</p><button class="button button-blue checkout-button" id="checkoutButton">Continue to checkout →</button><small class="demo-note">Demo storefront: checkout is not connected to a payment provider.</small></div>
+  </aside>
+  <script src="script.js"></script>
+</body>
+</html>
