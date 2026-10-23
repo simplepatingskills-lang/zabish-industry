@@ -1,459 +1,318 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#05070b">
-  <title>Professional Hair Scissors | Zabish Industry</title>
-  <style>
-    :root {
-      --bg: #05070b;
-      --panel: #0b1628;
-      --blue: #1677ff;
-      --cyan: #38bdf8;
-      --text: #fff;
-      --muted: #a7b0c0;
-      --border: #243550;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030914">
+<title>Product Details | Zabish Industry</title>
+<meta name="description" content="Explore product details from Zabish Industry.">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    header {
-      padding: 20px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      border-bottom: 1px solid var(--border);
-      background: #070c15;
-    }
-
-    .logo { font-size: 22px; font-weight: 800; }
-    .logo span { color: var(--cyan); }
-    nav { display: flex; gap: 22px; color: var(--muted); font-size: 14px; }
-    nav a:hover { color: var(--cyan); }
-
-    .breadcrumb {
-      padding: 24px 7%;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .product {
-      width: 86%;
-      max-width: 1200px;
-      margin: 0 auto 70px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      align-items: start;
-    }
-
-    .gallery { min-width: 0; }
-
-    .main-image {
-      height: 460px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: linear-gradient(145deg, #101e33, #080c14);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 20px;
-    }
-
-    .main-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transition: transform .3s ease;
-    }
-
-    .main-image:hover img { transform: scale(1.04); }
-
-    .thumbnails {
-      display: flex;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .thumb {
-      width: 78px;
-      height: 78px;
-      padding: 5px;
-      cursor: pointer;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .thumb.active, .thumb:hover { border-color: var(--blue); }
-    .thumb img { width: 100%; height: 100%; object-fit: contain; }
-
-    .category {
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    h1 { font-size: clamp(27px, 3vw, 40px); line-height: 1.2; margin: 12px 0; }
-    .sku { color: var(--muted); font-size: 13px; }
-    .rating { color: #ffd166; margin: 14px 0; font-size: 14px; }
-
-    .price { font-size: 32px; font-weight: 800; margin: 16px 0 4px; }
-    .price-note { font-size: 12px; color: var(--muted); }
-
-    .description { color: var(--muted); margin: 22px 0; }
-
-    .stock {
-      color: #68e6ad;
-      font-size: 14px;
-      margin: 15px 0;
-    }
-
-    .label { display: block; font-size: 14px; margin: 18px 0 8px; }
-
-    .quantity {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      overflow: hidden;
-    }
-
-    .quantity button {
-      background: var(--panel);
-      color: white;
-      border: 0;
-      width: 42px;
-      height: 42px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .quantity span { min-width: 45px; text-align: center; }
-
-    .actions { display: grid; gap: 12px; margin-top: 24px; }
-
-    .btn {
-      border-radius: 10px;
-      padding: 15px 20px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .btn-primary {
-      color: white;
-      background: var(--blue);
-      border: 1px solid var(--blue);
-    }
-
-    .btn-primary:hover {
-      background: #075fd8;
-      box-shadow: 0 0 22px #1677ff40;
-    }
-
-    .btn-secondary {
-      color: white;
-      background: #0b1628;
-      border: 1px solid var(--blue);
-    }
-
-    .btn-secondary:hover { background: #142642; }
-
-    .benefits {
-      margin-top: 22px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .benefit {
-      padding: 13px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .details {
-      width: 86%;
-      max-width: 1200px;
-      margin: 0 auto 70px;
-      padding: 30px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: #080d17;
-    }
-
-    .details h2 { margin-bottom: 14px; }
-    .details p { color: var(--muted); }
-
-    .related {
-      width: 86%;
-      max-width: 1200px;
-      margin: 0 auto 70px;
-    }
-
-    .related h2 { margin-bottom: 20px; }
-
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .related-card {
-      padding: 18px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-    }
-
-    .related-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: contain;
-      background: #101827;
-      border-radius: 10px;
-      margin-bottom: 12px;
-    }
-
-    .related-card p { color: var(--muted); font-size: 13px; }
-
-    #message {
-      display: none;
-      margin-top: 15px;
-      padding: 12px;
-      color: #fff;
-      background: #102c4b;
-      border: 1px solid var(--blue);
-      border-radius: 9px;
-      font-size: 13px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px 7%;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      font-size: 13px;
-    }
-
-    @media (max-width: 800px) {
-      header { padding: 18px 5%; }
-      nav { gap: 12px; }
-      .product { width: 90%; grid-template-columns: 1fr; gap: 30px; }
-      .main-image { height: 340px; }
-      .details, .related { width: 90%; }
-      .related-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 450px) {
-      nav a:nth-child(2) { display: none; }
-      .main-image { height: 280px; }
-      .benefits { grid-template-columns: 1fr; }
-    }
-  </style>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#030914;
+  --panel:#0b1628;
+  --panel2:#101f35;
+  --text:#f4f8ff;
+  --muted:#9eb0c8;
+  --blue:#38bdf8;
+  --blue2:#2563eb;
+  --line:rgba(148,183,220,.18)
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:radial-gradient(ellipse at top right,rgba(37,99,235,.18),transparent 42%),var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  min-height:100vh
+}
+a{color:inherit}
+.topbar{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:20px clamp(18px,5vw,72px);
+  border-bottom:1px solid var(--line);
+  background:rgba(3,9,20,.8)
+}
+.brand{font-weight:800;letter-spacing:2px;text-decoration:none}
+.brand small{
+  display:block;font-size:10px;letter-spacing:4px;color:var(--blue);margin-top:4px
+}
+.back{color:var(--blue);text-decoration:none;font-size:14px}
+.wrap{width:min(1120px,92%);margin:48px auto}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:24px}
+.product-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:clamp(28px,5vw,64px);
+  align-items:start
+}
+.photo-panel,.info-panel{
+  background:linear-gradient(145deg,rgba(16,31,53,.96),rgba(7,15,29,.96));
+  border:1px solid var(--line);
+  border-radius:24px;
+  overflow:hidden
+}
+.photo-panel{padding:20px;position:sticky;top:20px}
+.photo-panel img{
+  width:100%;aspect-ratio:1/1;object-fit:contain;display:block;
+  border-radius:14px;background:rgba(255,255,255,.025)
+}
+.info-panel{padding:clamp(24px,4vw,42px)}
+.eyebrow{
+  font-size:12px;letter-spacing:2px;color:var(--blue);
+  font-weight:700;text-transform:uppercase
+}
+.title{font-size:clamp(28px,4vw,42px);line-height:1.12;margin:14px 0}
+.meta{color:var(--muted);font-size:14px}
+.rating{color:#fbbf24;letter-spacing:2px;margin:18px 0}
+.price-line{display:flex;align-items:center;gap:12px;margin:18px 0 22px}
+.price{font-size:30px;font-weight:800}
+.old{color:#7f91a9;text-decoration:line-through}
+.desc{line-height:1.75;color:#c1cee0}
+.features{padding:0;list-style:none;display:grid;gap:10px;margin:22px 0}
+.features li{
+  padding:12px 14px;background:rgba(255,255,255,.035);
+  border:1px solid var(--line);border-radius:10px;color:#dbe8f8;font-size:14px
+}
+.buyrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.qty button{background:transparent;color:white;border:0;padding:12px 15px;cursor:pointer;font-size:18px}
+.qty span{min-width:30px;text-align:center}
+.btn{
+  border:0;border-radius:12px;padding:14px 20px;
+  background:linear-gradient(100deg,var(--blue2),#0891b2);
+  color:white;font-weight:700;cursor:pointer;flex:1;min-width:150px
+}
+.btn.secondary{background:transparent;border:1px solid var(--blue);color:var(--blue)}
+.notice{color:var(--muted);font-size:12px;line-height:1.6;margin-top:20px}
+.status{margin-top:16px;color:#7dd3fc;font-size:14px;min-height:20px}
+.missing{
+  max-width:650px;margin:70px auto;padding:32px;text-align:center;
+  border:1px solid var(--line);border-radius:20px;background:var(--panel)
+}
+.missing a{color:var(--blue)}
+footer{
+  text-align:center;color:var(--muted);font-size:12px;
+  padding:28px;border-top:1px solid var(--line)
+}
+@media(max-width:760px){
+  .product-layout{grid-template-columns:1fr}
+  .photo-panel{position:static}
+  .wrap{margin:28px auto}
+  .topbar{padding:16px}
+  .info-panel{padding:24px}
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <a class="logo" href="index.html">ZABISH <span>INDUSTRY</span></a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
-    </nav>
-  </header>
+<header class="topbar">
+  <a class="brand" href="index.html">ZABISH<small>INDUSTRY</small></a>
+  <a class="back" href="index.html">← Continue shopping</a>
+</header>
 
-  <div class="breadcrumb">Home / Beauty Tools / Hair Scissors</div>
+<main class="wrap">
+  <div class="crumb"><a href="index.html">Home</a> / Product details</div>
+  <div id="productRoot">
+    <div class="missing">Loading product details…</div>
+  </div>
+</main>
 
-  <main>
-    <section class="product">
-      <div class="gallery">
-        <div class="main-image">
-          <!-- Replace this demo image URL with your own product image -->
-          <img id="mainImage"
-            src="https://placehold.co/700x700/101e33/ffffff?text=Your+Scissors+Image"
-            alt="Professional hair cutting scissors">
-        </div>
+<footer>
+  © <span id="year"></span> Zabish Industry · Beauty Tools · Men's Fashion
+</footer>
 
-        <div class="thumbnails">
-          <button class="thumb active" onclick="changeImage(this, 0)" aria-label="Product image 1">
-            <img src="https://placehold.co/150x150/101e33/ffffff?text=Image+1" alt="Product view 1">
-          </button>
-          <button class="thumb" onclick="changeImage(this, 1)" aria-label="Product image 2">
-            <img src="https://placehold.co/150x150/142642/ffffff?text=Image+2" alt="Product view 2">
-          </button>
-          <button class="thumb" onclick="changeImage(this, 2)" aria-label="Product image 3">
-            <img src="https://placehold.co/150x150/1a304d/ffffff?text=Image+3" alt="Product view 3">
-          </button>
-        </div>
+<script>
+const params = new URLSearchParams(location.search);
+const productId = params.get("id");
+
+const money = n => "$" + (Number(n) || 0).toFixed(2);
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+}[c]));
+
+function readJSON(key, fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value ?? fallback;
+  } catch (error) {
+    return fallback;
+  }
+}
+
+const catalog = readJSON("zabish_product_catalog", []);
+const last = readJSON("zabish_selected_product", null);
+
+const product =
+  (Array.isArray(catalog)
+    ? catalog.find(p => String(p.id) === String(productId))
+    : null)
+  || (last && String(last.id) === String(productId) ? last : null);
+
+const root = document.getElementById("productRoot");
+
+if (!product) {
+  root.innerHTML = `
+    <div class="missing">
+      <h1>Product not found</h1>
+      <p>Please open the product from the Zabish Industry homepage.</p>
+      <a href="index.html">Return to homepage</a>
+    </div>`;
+} else {
+  const image = product.image || product.imageUrl || "";
+
+  const description = product.description || product.details ||
+    `Discover ${product.name} from Zabish Industry. Designed with attention to quality, usability and everyday value. Contact us for more product specifications, wholesale enquiries and shipping information.`;
+
+  const material = product.material || product.type || "Quality product";
+
+  const category = product.cat === "beauty"
+    ? "Beauty Tools"
+    : product.cat === "fashion"
+      ? "Men's Fashion"
+      : (product.category || "Zabish Collection");
+
+  const specs = Array.isArray(product.specifications)
+    ? product.specifications
+    : Array.isArray(product.specs)
+      ? product.specs
+      : [];
+
+  const features = [
+    `Category: ${category}`,
+    `Material / Type: ${material}`,
+    `Product ID: ${product.id}`,
+    ...specs.map(item =>
+      typeof item === "string"
+        ? item
+        : (item.label
+            ? `${item.label}: ${item.value ?? ""}`
+            : JSON.stringify(item))
+    )
+  ];
+
+  root.innerHTML = `
+    <section class="product-layout">
+      <div class="photo-panel">
+        <img
+          id="mainImage"
+          src="${esc(image)}"
+          alt="${esc(product.name)}"
+          onerror="this.style.display='none'"
+        >
       </div>
 
-      <div class="info">
-        <div class="category">Professional Beauty Tools</div>
-        <h1 id="productName">Professional Hair Cutting Scissors</h1>
-        <p class="sku">SKU: ZBI-SC-001</p>
-        <div class="rating">★★★★★ <span style="color:#a7b0c0">Reviews appear when available</span></div>
+      <div class="info-panel">
+        <div class="eyebrow">${esc(category)}</div>
 
-        <div class="price" id="price">£24.99</div>
-        <p class="price-note">Shipping and taxes calculated at checkout.</p>
+        <h1 class="title">${esc(product.name)}</h1>
 
-        <p class="description" id="description">
-          Professional-style hair cutting scissors with a sleek stainless-steel finish.
-          Replace this sample description with your verified product information.
+        <div class="meta">Product code: ${esc(product.id)}</div>
+
+        <div class="rating" aria-label="Demo rating">
+          ★★★★★
+          <span class="meta">Customer rating display (demo)</span>
+        </div>
+
+        <div class="price-line">
+          <span class="price">${money(product.price)}</span>
+          ${
+            Number(product.old) > Number(product.price)
+              ? `<span class="old">${money(product.old)}</span>`
+              : ""
+          }
+        </div>
+
+        <p class="desc">${esc(description)}</p>
+
+        <ul class="features">
+          ${features.map(item => `<li>✓ &nbsp; ${esc(item)}</li>`).join("")}
+        </ul>
+
+        <div class="buyrow">
+          <div class="qty">
+            <button type="button" id="minus" aria-label="Decrease quantity">−</button>
+            <span id="qty">1</span>
+            <button type="button" id="plus" aria-label="Increase quantity">+</button>
+          </div>
+
+          <button class="btn secondary" id="addCart">Add to Cart</button>
+          <button class="btn" id="buyNow">Buy Now</button>
+        </div>
+
+        <div class="status" id="status" role="status"></div>
+
+        <p class="notice">
+          Checkout and online payment are not connected yet.
+          Buy Now will add this item to your saved cart; a secure
+          checkout/payment provider must be set up before real orders can be placed.
         </p>
-
-        <p class="stock">● Availability subject to confirmed stock</p>
-
-        <label class="label" for="quantity">Quantity</label>
-        <div class="quantity">
-          <button onclick="changeQuantity(-1)" aria-label="Decrease quantity">−</button>
-          <span id="quantity">1</span>
-          <button onclick="changeQuantity(1)" aria-label="Increase quantity">+</button>
-        </div>
-
-        <div class="actions">
-          <button class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
-          <button class="btn btn-secondary" onclick="buyNow()">Buy Now</button>
-        </div>
-
-        <div id="message" role="status" aria-live="polite"></div>
-
-        <div class="benefits">
-          <div class="benefit">✦ Product details and specifications</div>
-          <div class="benefit">✦ Shipping information at checkout</div>
-          <div class="benefit">✦ Secure checkout when configured</div>
-          <div class="benefit">✦ Customer support</div>
-        </div>
       </div>
     </section>
+  `;
 
-    <section class="details">
-      <h2>Product Details</h2>
-      <p id="fullDescription">
-        Add the actual material, dimensions, blade type, care instructions,
-        and package contents for this product here. Do not publish unverified claims.
-      </p>
-    </section>
+  let quantity = 1;
 
-    <section class="related">
-      <h2>Explore Beauty Tools</h2>
-      <div class="related-grid">
-        <a class="related-card" href="product.html?item=pointed-tweezer">
-          <img src="https://placehold.co/400x300/101e33/ffffff?text=Pointed+Tweezer" alt="Pointed-tip tweezer">
-          <h3>Pointed-Tip Tweezer</h3>
-          <p>Precision beauty tool</p>
-        </a>
-        <a class="related-card" href="product.html?item=slanted-tweezer">
-          <img src="https://placehold.co/400x300/101e33/ffffff?text=Slanted+Tweezer" alt="Slanted-tip tweezer">
-          <h3>Slanted-Tip Tweezer</h3>
-          <p>Eyebrow shaping tool</p>
-        </a>
-        <a class="related-card" href="product.html?item=straight-tweezer">
-          <img src="https://placehold.co/400x300/101e33/ffffff?text=Straight+Tweezer" alt="Straight-tip tweezer">
-          <h3>Straight-Tip Tweezer</h3>
-          <p>General beauty tool</p>
-        </a>
-      </div>
-    </section>
-  </main>
+  const qtyEl = document.getElementById("qty");
+  const status = document.getElementById("status");
 
-  <footer>© 2026 Zabish Industry. All rights reserved.</footer>
+  document.getElementById("minus").onclick = () => {
+    quantity = Math.max(1, quantity - 1);
+    qtyEl.textContent = quantity;
+  };
 
-  <script>
-    // Demo product data. Connect this to your actual database before launch.
-    const product = {
-      id: "ZBI-SC-001",
-      name: "Professional Hair Cutting Scissors",
-      price: 24.99,
-      currency: "GBP"
-    };
+  document.getElementById("plus").onclick = () => {
+    quantity = Math.min(99, quantity + 1);
+    qtyEl.textContent = quantity;
+  };
 
-    const demoImages = [
-      "https://placehold.co/700x700/101e33/ffffff?text=Your+Scissors+Image",
-      "https://placehold.co/700x700/142642/ffffff?text=Scissors+Side+View",
-      "https://placehold.co/700x700/1a304d/ffffff?text=Scissors+Detail"
-    ];
+  function addToSavedCart(goToCart) {
+    let cart = readJSON("zabish_cart", []);
 
-    let quantity = 1;
+    if (!Array.isArray(cart)) cart = [];
 
-    function changeImage(button, index) {
-      document.getElementById("mainImage").src = demoImages[index];
-      document.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
-      button.classList.add("active");
+    const item = cart.find(x => String(x.id) === String(product.id));
+
+    if (item) {
+      item.qty = (Number(item.qty) || 0) + quantity;
+    } else {
+      cart.push({...product, qty:quantity});
     }
 
-    function changeQuantity(amount) {
-      quantity = Math.max(1, quantity + amount);
-      document.getElementById("quantity").textContent = quantity;
+    try {
+      localStorage.setItem("zabish_cart", JSON.stringify(cart));
+      localStorage.setItem("zabish_selected_product", JSON.stringify(product));
+    } catch (error) {
+      status.textContent = "Could not save cart in this browser.";
+      return;
     }
 
-    function getCart() {
+    status.textContent = quantity + " × " + product.name + " added to cart.";
+
+    if (goToCart) {
       try {
-        return JSON.parse(localStorage.getItem("zabish_demo_cart") || "[]");
-      } catch {
-        return [];
-      }
+        localStorage.setItem("zabish_open_cart", "1");
+      } catch (error) {}
+
+      location.href = "index.html#home";
     }
+  }
 
-    function updateCartCount() {
-      const cart = getCart();
-      document.getElementById("cartCount").textContent =
-        cart.reduce((sum, item) => sum + item.quantity, 0);
-    }
+  document.getElementById("addCart").onclick = () => addToSavedCart(false);
+  document.getElementById("buyNow").onclick = () => addToSavedCart(true);
+}
 
-    function showMessage(text) {
-      const box = document.getElementById("message");
-      box.textContent = text;
-      box.style.display = "block";
-    }
-
-    function addToCart() {
-      const cart = getCart();
-      const existing = cart.find(item => item.id === product.id);
-
-      if (existing) {
-        existing.quantity += quantity;
-      } else {
-        cart.push({
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          currency: product.currency,
-          quantity
-        });
-      }
-
-      localStorage.setItem("zabish_demo_cart", JSON.stringify(cart));
-      updateCartCount();
-      showMessage("Demo: Product added to this browser's local cart.");
-    }
-
-    function buyNow() {
-      addToCart();
-      showMessage("Demo only: Connect a real checkout before accepting orders or payments.");
-    }
-
-    updateCartCount();
-  </script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
