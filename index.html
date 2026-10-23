@@ -227,6 +227,10 @@ footer a:hover{color:white}
   .product-img{height:210px}
   .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+.product-open{display:block;width:100%;height:100%}
+.product-title-link{color:inherit;text-decoration:none}
+.product-title-link:hover{color:#38bdf8}
+.product-open:focus-visible,.product-title-link:focus-visible{outline:2px solid #38bdf8;outline-offset:3px}
 </style>
 </head>
 
@@ -293,25 +297,23 @@ footer a:hover{color:white}
       <div>
         <h3 class="category-heading">BEAUTY TOOLS</h3>
         <div class="category-grid">
-         
-        <a class="category" href="#beauty" data-search="hair scissors"><img data-home-tile="hair scissors" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=300&q=80" alt="Beauty scissors"><span>Hair Scissors</span></a>
-        <a class="category" href="#beauty" data-search="tweezers"><img data-home-tile="tweezers" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=300&q=80" alt="Beauty tools"><span>Tweezers</span></a>
-         <a class="category" href="#beauty" data-search="nail clippers"><img data-home-tile="nail clippers" src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=300&q=80" alt="Nail care"><span>Nail Clippers</span></a>
-        <a class="category" href="#beauty" data-search="cuticle nippers"><img data-home-tile="cuticle nippers" src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=300&q=80" alt="Nail manicure"><span>Cuticle Tools</span></a>
-        <a class="category" href="#beauty" data-search="manicure set"><img data-home-tile="manicure set" src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=300&q=80" alt="Manicure set"><span>Manicure Sets</span></a>
-  </div>
+          <a class="category" href="#beauty" data-search="hair scissors"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=300&q=80" alt="Beauty scissors"><span>Hair Scissors</span></a>
+          <a class="category" href="#beauty" data-search="tweezers"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=300&q=80" alt="Beauty tools"><span>Tweezers</span></a>
+          <a class="category" href="#beauty" data-search="nail clippers"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=300&q=80" alt="Nail care"><span>Nail Clippers</span></a>
+          <a class="category" href="#beauty" data-search="cuticle nippers"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=300&q=80" alt="Nail manicure"><span>Cuticle Tools</span></a>
+          <a class="category" href="#beauty" data-search="manicure set"><img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=300&q=80" alt="Manicure set"><span>Manicure Sets</span></a>
+        </div>
       </div>
 
       <div>
         <h3 class="category-heading">MEN'S CLOTHING</h3>
         <div class="category-grid">
-         
-         <a class="category" href="#fashion" data-search="leather jacket"><img data-home-tile="leather jacket" src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=300&q=80" alt="Leather jacket"><span>Leather Jackets</span></a>
-        <a class="category" href="#fashion" data-search="hoodie"><img data-home-tile="hoodie" src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=300&q=80" alt="Hoodie"><span>Hoodies</span></a>
-        <a class="category" href="#fashion" data-search="trousers"><img data-home-tile="trousers" src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=300&q=80" alt="Men trousers"><span>Trousers</span></a>
-         <a class="category" href="#fashion" data-search="shirt"><img data-home-tile="shirt" src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=300&q=80" alt="Men shirt"><span>Shirts</span></a>
-        <a class="category" href="#fashion" data-search="t shirt"><img data-home-tile="t shirt" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=300&q=80" alt="T-shirt"><span>T-Shirts</span></a>
-    </div>
+          <a class="category" href="#fashion" data-search="leather jacket"><img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=300&q=80" alt="Leather jacket"><span>Leather Jackets</span></a>
+          <a class="category" href="#fashion" data-search="hoodie"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=300&q=80" alt="Hoodie"><span>Hoodies</span></a>
+          <a class="category" href="#fashion" data-search="trousers"><img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=300&q=80" alt="Men trousers"><span>Trousers</span></a>
+          <a class="category" href="#fashion" data-search="shirt"><img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=300&q=80" alt="Men shirt"><span>Shirts</span></a>
+          <a class="category" href="#fashion" data-search="t shirt"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=300&q=80" alt="T-shirt"><span>T-Shirts</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -380,7 +382,6 @@ footer a:hover{color:white}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-/* Ye sample products tab dikhte hain jab admin mein koi product add na kiya ho */
 const defaultProducts = [
  {id:1,name:"Professional Hair Scissors",material:"Stainless Steel",price:19.99,old:24.99,cat:"beauty",image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=85"},
  {id:2,name:"Precision Tweezers Set",material:"Stainless Steel",price:12.99,old:16.99,cat:"beauty",image:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=85"},
@@ -396,186 +397,264 @@ const defaultProducts = [
  {id:12,name:"Essential T-Shirt",material:"Cotton Style",price:19.99,old:24.99,cat:"fashion",image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=85"}
 ];
 
-/* Admin page ke products yahan se load hote hain (agar admin mein products hon) */
 let products = defaultProducts;
 try {
   const saved = JSON.parse(localStorage.getItem("zabish_products"));
-  if (Array.isArray(saved) && saved.length) products = saved.filter(p => p.visible !== false);
+  if (Array.isArray(saved) && saved.length) {
+    products = saved.filter(p => p.visible !== false);
+  }
 } catch (e) {}
 
 let cart = [];
+try {
+  const savedCart = JSON.parse(localStorage.getItem("zabish_cart") || "[]");
+  if (Array.isArray(savedCart)) cart = savedCart;
+} catch (e) { cart = []; }
+
 let wishlist = new Set();
 const $ = id => document.getElementById(id);
 const money = n => "$" + Number(n).toFixed(2);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-function productCard(p){
- const out = p.stock !== undefined && Number(p.stock) <= 0;
- return `<article class="product" data-id="${p.id}">
-  <div class="product-img">
-   <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.style.opacity='.15'">
-   <span class="tag">${out ? "SOLD OUT" : "FEATURED"}</span>
-   <button class="wish ${wishlist.has(p.id)?"liked":""}" data-wish="${p.id}" aria-label="Add ${esc(p.name)} to wishlist">${wishlist.has(p.id)?"♥":"♡"}</button>
-  </div>
-  <div class="product-info">
-   <h3>${esc(p.name)}</h3>
-   <div class="material">${esc(p.material)}</div>
-   <div class="stars">★★★★★ <span class="rating">Demo rating</span></div>
-   <div class="price-row"><span class="price">${money(p.price)}</span>${p.old > p.price ? `<span class="old-price">${money(p.old)}</span>` : ""}</div>
-   <button class="add" data-add="${p.id}" ${out ? "disabled style='opacity:.5;cursor:not-allowed'" : ""}>${out ? "Out of stock" : "Add to Cart +"}</button>
-  </div>
- </article>`;
+function productCard(p) {
+  const out = p.stock !== undefined && Number(p.stock) <= 0;
+  const id = String(p.id);
+  const productUrl = `product.html?id=${encodeURIComponent(id)}`;
+
+  return `<article class="product" data-id="${esc(id)}">
+    <div class="product-img">
+      <a class="product-open" data-product-open="${esc(id)}" href="${productUrl}" aria-label="View ${esc(p.name)} details">
+        <img src="${esc(p.image || p.imageUrl || "")}" alt="${esc(p.name)}" loading="lazy" onerror="this.style.opacity='.15'">
+      </a>
+      <span class="tag">${out ? "SOLD OUT" : "FEATURED"}</span>
+      <button class="wish ${wishlist.has(p.id) ? "liked" : ""}" data-wish="${esc(id)}" aria-label="Add ${esc(p.name)} to wishlist">${wishlist.has(p.id) ? "♥" : "♡"}</button>
+    </div>
+    <div class="product-info">
+      <h3><a class="product-title-link" data-product-open="${esc(id)}" href="${productUrl}">${esc(p.name)}</a></h3>
+      <div class="material">${esc(p.material || p.type || "Quality product")}</div>
+      <div class="stars">★★★★★ <span class="rating">Demo rating</span></div>
+      <div class="price-row">
+        <span class="price">${money(p.price)}</span>
+        ${p.old > p.price ? `<span class="old-price">${money(p.old)}</span>` : ""}
+      </div>
+      <button class="add" data-add="${esc(id)}" ${out ? "disabled style='opacity:.5;cursor:not-allowed'" : ""}>${out ? "Out of stock" : "Add to Cart +"}</button>
+    </div>
+  </article>`;
 }
-function renderProducts(filter=""){
- const matches = p => (p.name+" "+(p.material||"")+" "+(p.type||"")).toLowerCase().includes(filter.toLowerCase());
- $("beautyGrid").innerHTML = products.filter(p=>p.cat==="beauty"&&matches(p)).map(productCard).join("") || '<p class="empty">No matching beauty tools found.</p>';
- $("fashionGrid").innerHTML = products.filter(p=>p.cat==="fashion"&&matches(p)).map(productCard).join("") || '<p class="empty">No matching clothing found.</p>';
+
+function renderProducts(filter = "") {
+  try {
+    localStorage.setItem("zabish_product_catalog", JSON.stringify(products));
+  } catch (error) {
+    console.warn("Could not save product catalogue:", error);
+  }
+
+  const matches = p => (p.name + " " + (p.material || "") + " " + (p.type || "")).toLowerCase().includes(filter.toLowerCase());
+
+  $("beautyGrid").innerHTML = products.filter(p => p.cat === "beauty" && matches(p)).map(productCard).join("") || '<p class="empty">No matching beauty tools found.</p>';
+  $("fashionGrid").innerHTML = products.filter(p => p.cat === "fashion" && matches(p)).map(productCard).join("") || '<p class="empty">No matching clothing found.</p>';
 }
-function toast(msg){
- $("toast").textContent=msg;
- $("toast").classList.add("show");
- clearTimeout(toast.timer);
- toast.timer=setTimeout(()=>$("toast").classList.remove("show"),2300);
+
+function toast(msg) {
+  $("toast").textContent = msg;
+  $("toast").classList.add("show");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => $("toast").classList.remove("show"), 2300);
 }
-function addToCart(id){
- const p=products.find(x=>x.id===id);
- if(!p)return;
- const item=cart.find(x=>x.id===id);
- if(item)item.qty++;else cart.push({...p,qty:1});
- renderCart();toast(p.name+" added to cart");
+
+function addToCart(id) {
+  const p = products.find(x => String(x.id) === String(id));
+  if (!p) return;
+
+  const item = cart.find(x => String(x.id) === String(id));
+  if (item) item.qty++;
+  else cart.push({...p, qty:1});
+
+  renderCart();
+  toast(p.name + " added to cart");
 }
-function changeQty(id,delta){
- const item=cart.find(x=>x.id===id);
- if(!item)return;
- item.qty+=delta;
- if(item.qty<=0)cart=cart.filter(x=>x.id!==id);
- renderCart();
+
+function changeQty(id, delta) {
+  const item = cart.find(x => String(x.id) === String(id));
+  if (!item) return;
+
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(x => String(x.id) !== String(id));
+  renderCart();
 }
-function renderCart(){
- const count=cart.reduce((s,p)=>s+p.qty,0);
- $("cartCount").textContent=count;
- $("drawerCount").textContent="("+count+")";
- $("subtotal").textContent=money(cart.reduce((s,p)=>s+p.price*p.qty,0));
- $("cartItems").innerHTML=cart.length?cart.map(p=>`
-  <div class="cart-row">
-   <img src="${esc(p.image)}" alt="${esc(p.name)}">
-   <div><h4>${esc(p.name)}</h4><small>${money(p.price)}</small>
-    <div class="qty"><button data-qty="${p.id}" data-delta="-1">−</button><span>${p.qty}</span><button data-qty="${p.id}" data-delta="1">+</button></div>
-   </div>
-   <button class="remove" data-remove="${p.id}">Remove</button>
-  </div>`).join(""):'<p class="empty">Your cart is empty.<br>Explore our collections to get started.</p>';
+
+function renderCart() {
+  try {
+    localStorage.setItem("zabish_cart", JSON.stringify(cart));
+  } catch (error) {
+    console.warn("Could not save cart:", error);
+  }
+
+  const count = cart.reduce((s,p) => s + p.qty, 0);
+  $("cartCount").textContent = count;
+  $("drawerCount").textContent = "(" + count + ")";
+  $("subtotal").textContent = money(cart.reduce((s,p) => s + p.price * p.qty, 0));
+
+  $("cartItems").innerHTML = cart.length ? cart.map(p => `
+    <div class="cart-row">
+      <img src="${esc(p.image || p.imageUrl || "")}" alt="${esc(p.name)}">
+      <div>
+        <h4>${esc(p.name)}</h4>
+        <small>${money(p.price)}</small>
+        <div class="qty">
+          <button data-qty="${esc(p.id)}" data-delta="-1" aria-label="Decrease quantity">−</button>
+          <span>${p.qty}</span>
+          <button data-qty="${esc(p.id)}" data-delta="1" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+      <button class="remove" data-remove="${esc(p.id)}">Remove</button>
+    </div>`).join("") : '<p class="empty">Your cart is empty.<br>Explore our collections to get started.</p>';
 }
-function openCart(){
- $("cartDrawer").classList.add("open");
- $("overlay").classList.add("open");
- $("cartDrawer").setAttribute("aria-hidden","false");
+
+function openCart() {
+  $("cartDrawer").classList.add("open");
+  $("overlay").classList.add("open");
+  $("cartDrawer").setAttribute("aria-hidden", "false");
 }
-function closeCart(){
- $("cartDrawer").classList.remove("open");
- $("overlay").classList.remove("open");
- $("cartDrawer").setAttribute("aria-hidden","true");
+
+function closeCart() {
+  $("cartDrawer").classList.remove("open");
+  $("overlay").classList.remove("open");
+  $("cartDrawer").setAttribute("aria-hidden", "true");
 }
-document.addEventListener("click",e=>{
- const add=e.target.closest("[data-add]");
- if(add){addToCart(Number(add.dataset.add));return}
- const wish=e.target.closest("[data-wish]");
- if(wish){
-  const id=Number(wish.dataset.wish);
-  wishlist.has(id)?wishlist.delete(id):wishlist.add(id);
-  wish.classList.toggle("liked",wishlist.has(id));
-  wish.textContent=wishlist.has(id)?"♥":"♡";
-  toast(wishlist.has(id)?"Added to wishlist":"Removed from wishlist");
-  return;
- }
- const qty=e.target.closest("[data-qty]");
- if(qty){changeQty(Number(qty.dataset.qty),Number(qty.dataset.delta));return}
- const remove=e.target.closest("[data-remove]");
- if(remove){cart=cart.filter(p=>p.id!==Number(remove.dataset.remove));renderCart();return}
- const cat=e.target.closest("[data-search]");
- if(cat){$("searchInput").value=cat.dataset.search;renderProducts(cat.dataset.search)}
+
+document.addEventListener("click", e => {
+  const productLink = e.target.closest("[data-product-open]");
+  if (productLink) {
+    const productId = productLink.dataset.productOpen;
+    const selectedProduct = products.find(p => String(p.id) === String(productId));
+    if (selectedProduct) {
+      try {
+        localStorage.setItem("zabish_selected_product", JSON.stringify(selectedProduct));
+      } catch (error) {
+        console.warn("Could not save selected product:", error);
+      }
+    }
+  }
+
+  const add = e.target.closest("[data-add]");
+  if (add) {
+    addToCart(add.dataset.add);
+    return;
+  }
+
+  const wish = e.target.closest("[data-wish]");
+  if (wish) {
+    const id = wish.dataset.wish;
+    wishlist.has(id) ? wishlist.delete(id) : wishlist.add(id);
+    wish.classList.toggle("liked", wishlist.has(id));
+    wish.textContent = wishlist.has(id) ? "♥" : "♡";
+    toast(wishlist.has(id) ? "Added to wishlist" : "Removed from wishlist");
+    return;
+  }
+
+  const qty = e.target.closest("[data-qty]");
+  if (qty) {
+    changeQty(qty.dataset.qty, Number(qty.dataset.delta));
+    return;
+  }
+
+  const remove = e.target.closest("[data-remove]");
+  if (remove) {
+    cart = cart.filter(p => String(p.id) !== String(remove.dataset.remove));
+    renderCart();
+    return;
+  }
+
+  const cat = e.target.closest("[data-search]");
+  if (cat) {
+    $("searchInput").value = cat.dataset.search;
+    renderProducts(cat.dataset.search);
+  }
 });
-$("cartButton").addEventListener("click",openCart);
-$("closeCart").addEventListener("click",closeCart);
-$("overlay").addEventListener("click",closeCart);
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
-$("mobileMenu").addEventListener("click",()=>{
- const open=$("nav").classList.toggle("open");
- $("mobileMenu").setAttribute("aria-expanded",String(open));
+
+$("cartButton").addEventListener("click", openCart);
+$("closeCart").addEventListener("click", closeCart);
+$("overlay").addEventListener("click", closeCart);
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeCart();
 });
-$("nav").addEventListener("click",e=>{
- if(e.target.closest("a")){$("nav").classList.remove("open");$("mobileMenu").setAttribute("aria-expanded","false")}
+
+$("mobileMenu").addEventListener("click", () => {
+  const open = $("nav").classList.toggle("open");
+  $("mobileMenu").setAttribute("aria-expanded", String(open));
 });
-$("searchForm").addEventListener("submit",e=>{
- e.preventDefault();
- renderProducts($("searchInput").value.trim());
- document.querySelector("#beauty").scrollIntoView({behavior:"smooth"});
+
+$("nav").addEventListener("click", e => {
+  if (e.target.closest("a")) {
+    $("nav").classList.remove("open");
+    $("mobileMenu").setAttribute("aria-expanded", "false");
+  }
 });
-$("searchInput").addEventListener("input",()=>{
- if($("searchInput").value.trim().length===0)renderProducts();
+
+$("searchForm").addEventListener("submit", e => {
+  e.preventDefault();
+  renderProducts($("searchInput").value.trim());
+  document.querySelector("#beauty").scrollIntoView({behavior:"smooth"});
 });
-$("wishlistButton").addEventListener("click",()=>{
- if(!wishlist.size){toast("Your wishlist is empty");return}
- const names=products.filter(p=>wishlist.has(p.id)).map(p=>p.name).join(", ");
- toast("Wishlist: "+names);
+
+$("searchInput").addEventListener("input", () => {
+  if ($("searchInput").value.trim().length === 0) renderProducts();
 });
-$("checkout").addEventListener("click",()=>{
- if(!cart.length){toast("Your cart is empty");return}
- toast("Demo checkout only — connect a secure backend to place orders.");
+
+$("wishlistButton").addEventListener("click", () => {
+  if (!wishlist.size) {
+    toast("Your wishlist is empty");
+    return;
+  }
+  const names = products.filter(p => wishlist.has(p.id)).map(p => p.name).join(", ");
+  toast("Wishlist: " + names);
 });
-$("newsletterForm").addEventListener("submit",e=>{
- e.preventDefault();
- toast("Demo form only — connect an email service to subscribe.");
- $("emailInput").value="";
+
+$("checkout").addEventListener("click", () => {
+  if (!cart.length) {
+    toast("Your cart is empty");
+    return;
+  }
+  toast("Demo checkout only — connect a secure backend to place orders.");
 });
-  
-/* Load homepage banner images saved by the admin page */
+
+$("newsletterForm").addEventListener("submit", e => {
+  e.preventDefault();
+  toast("Demo form only — connect an email service to subscribe.");
+  $("emailInput").value = "";
+});
+
 function loadAdminHomeBanners() {
   try {
-    const home = JSON.parse(localStorage.getItem("zabish_home")) || {};
+    const savedHome = JSON.parse(localStorage.getItem("zabish_home") || "{}");
+    const beautyBanner = savedHome["hero-beauty"];
+    const fashionBanner = savedHome["hero-fashion"];
+    const beautyElement = document.querySelector(".beauty-image");
+    const fashionElement = document.querySelector(".fashion-image");
 
-    const beautyBanner = document.querySelector(".beauty-image");
-    const fashionBanner = document.querySelector(".fashion-image");
-
-    if (beautyBanner && home["hero-beauty"]) {
-      beautyBanner.style.backgroundImage =
-        `url("${home["hero-beauty"]}")`;
+    if (beautyBanner && beautyElement) {
+      beautyElement.style.backgroundImage = `url("${String(beautyBanner).replace(/"/g, "%22")}")`;
     }
-
-    if (fashionBanner && home["hero-fashion"]) {
-      fashionBanner.style.backgroundImage =
-        `url("${home["hero-fashion"]}")`;
+    if (fashionBanner && fashionElement) {
+      fashionElement.style.backgroundImage = `url("${String(fashionBanner).replace(/"/g, "%22")}")`;
     }
   } catch (error) {
-    console.error("Could not load admin banner images:", error);
+    console.warn("Could not load admin banner images:", error);
   }
 }
 
+$("year").textContent = new Date().getFullYear();
 loadAdminHomeBanners();
-  /* Load category pictures saved from Admin */
-function loadCategoryPictures() {
-  try {
-    const home = JSON.parse(localStorage.getItem("zabish_home") || "{}");
-
-    document.querySelectorAll("img[data-home-tile]").forEach(img => {
-      const key = img.dataset.homeTile;
-      if (home[key]) {
-        img.src = home[key];
-      }
-    });
-  } catch (error) {
-    console.error("Could not load category pictures:", error);
-  }
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", loadCategoryPictures);
-} else {
-  loadCategoryPictures();
-}
-
-$("year").textContent=new Date().getFullYear();
 renderProducts();
 renderCart();
+
+try {
+  if (localStorage.getItem("zabish_open_cart") === "1") {
+    localStorage.removeItem("zabish_open_cart");
+    openCart();
+  }
+} catch (e) {}
 </script>
 </body>
 </html>
