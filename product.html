@@ -300,12 +300,8 @@ if (!product) {
     status.textContent = quantity + " × " + product.name + " added to cart.";
 
     if (goToCart) {
-      try {
-        localStorage.setItem("zabish_open_cart", "1");
-      } catch (error) {}
-
-      location.href = "index.html#home";
-    }
+       location.href = "checkout.html";
+}
   }
 
   document.getElementById("addCart").onclick = () => addToSavedCart(false);
