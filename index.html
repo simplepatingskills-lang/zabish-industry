@@ -1,371 +1,272 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zabish Industry | Beauty and Men's Fashion</title>
-<meta name="description" content="Zabish Industry: premium beauty products and men's fashion, leather jackets, trousers and more. Worldwide shipping.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#07080b; --panel:#0f1218; --panel2:#151a23; --line:#1f2733;
-  --text:#eef1f6; --muted:#8e98a9; --blue:#1f6bff; --blue2:#4d8dff;
-  --font:'Manrope',system-ui,sans-serif; --display:'Fraunces',Georgia,serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--text);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-button,input,select,textarea{font:inherit;color:inherit}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--blue2);outline-offset:3px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover beauty essentials and modern men's fashion at Zabish Industry." />
+  <meta name="theme-color" content="#030914" />
+  <title>Zabish Industry | Beauty & Fashion</title>
 
-/* top strip + header */
-.strip{background:var(--blue);color:#fff;font-size:.82rem;text-align:center;padding:7px 12px}
-header{position:sticky;top:0;z-index:30;background:rgba(7,8,11,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:18px;height:68px}
-.logo{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.04em;line-height:1}
-.logo small{display:block;font-family:var(--font);font-weight:500;font-size:.62rem;letter-spacing:.42em;color:var(--blue2);margin-top:3px}
-nav{display:flex;gap:22px;margin-left:18px}
-nav a{color:var(--muted);font-weight:500;font-size:.95rem;padding:6px 0;border-bottom:2px solid transparent}
-nav a:hover{color:var(--text);border-color:var(--blue)}
-.search{flex:1;max-width:340px;margin-left:auto}
-.search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:.92rem}
-.search input::placeholder{color:var(--muted)}
-.cart-btn{position:relative;background:var(--blue);border:0;border-radius:999px;padding:9px 18px;font-weight:700;cursor:pointer}
-.cart-btn:hover{background:var(--blue2)}
-.cart-btn span{background:#fff;color:var(--blue);border-radius:999px;padding:0 7px;margin-left:6px;font-size:.8rem}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 
-/* hero */
-.hero{padding:72px 0 40px;text-align:center}
-.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,8vw,5.6rem);line-height:1;letter-spacing:.02em}
-.hero h1 em{display:block;font-style:normal;font-size:.28em;letter-spacing:.7em;color:var(--blue2);font-family:var(--font);font-weight:500;margin-top:18px;padding-left:.7em}
-.hero p{color:var(--muted);max-width:520px;margin:22px auto 0;font-size:1.05rem}
-.doors{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
-.door{position:relative;min-height:230px;border:1px solid var(--line);border-radius:6px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;text-align:left;overflow:hidden;background:var(--panel);transition:border-color .2s}
-.door:hover{border-color:var(--blue)}
-.door::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(31,107,255,.28),transparent 55%)}
-.door.alt::before{background:radial-gradient(circle at 15% 15%,rgba(31,107,255,.28),transparent 55%)}
-.door h2{position:relative;font-family:var(--display);font-size:1.9rem;line-height:1.1}
-.door p{position:relative;margin:6px 0 14px;font-size:.95rem}
-.door b{position:relative;color:var(--blue2);font-size:.95rem}
-
-/* trust */
-.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:34px 0 10px}
-.trust div{border-left:2px solid var(--blue);padding:4px 14px;font-size:.88rem;color:var(--muted)}
-.trust strong{display:block;color:var(--text);font-size:.95rem}
-
-/* shop */
-section.shop{padding:56px 0 10px}
-.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
-.head h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.1}
-.tabs{display:flex;gap:8px;flex-wrap:wrap}
-.tab{background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer;color:var(--muted);font-weight:500}
-.tab:hover{color:var(--text);border-color:var(--blue)}
-.tab.on{background:var(--blue);border-color:var(--blue);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
-.card:hover{border-color:var(--blue)}
-.pic{position:relative;aspect-ratio:4/5;background:linear-gradient(145deg,#12182a,#0a0d14);display:grid;place-items:center;overflow:hidden}
-.pic img{width:100%;height:100%;object-fit:cover}
-.pic .ph{font-family:var(--display);font-size:3.4rem;color:var(--blue2);opacity:.8}
-.tag{position:absolute;top:10px;left:10px;background:var(--blue);color:#fff;font-size:.74rem;font-weight:700;padding:2px 9px;border-radius:999px}
-.info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
-.cat{font-size:.78rem;color:var(--muted)}
-.info h3{font-size:1.02rem;font-weight:700;line-height:1.3}
-.info .d{font-size:.86rem;color:var(--muted);flex:1}
-.rate{font-size:.84rem;color:var(--blue2)}
-.price{display:flex;align-items:baseline;gap:8px;margin-top:6px}
-.price b{font-size:1.2rem}
-.price s{color:var(--muted);font-size:.9rem}
-.add{margin-top:10px;background:transparent;border:1px solid var(--blue);color:var(--text);border-radius:4px;padding:9px;font-weight:700;cursor:pointer}
-.add:hover{background:var(--blue)}
-.add:disabled{border-color:var(--line);color:var(--muted);cursor:not-allowed;background:transparent}
-.empty{grid-column:1/-1;color:var(--muted);padding:40px 0;text-align:center}
-
-/* cart drawer */
-.shade{position:fixed;inset:0;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}
-.shade.on{opacity:1;pointer-events:auto}
-aside{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:50;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
-aside.on{transform:none}
-aside header{position:static;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:none}
-aside h2{font-family:var(--display);font-size:1.4rem}
-.x{background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--muted)}
-.lines{flex:1;overflow:auto;padding:6px 20px}
-.line{display:flex;gap:12px;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:.92rem}
-.line small{color:var(--muted);display:block}
-.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
-.qty button{width:26px;height:26px;border-radius:4px;border:1px solid var(--line);background:var(--panel2);cursor:pointer}
-.qty button:hover{border-color:var(--blue)}
-.foot{padding:16px 20px;border-top:1px solid var(--line)}
-.total{display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;margin-bottom:12px}
-.btn{width:100%;background:var(--blue);border:0;border-radius:4px;padding:12px;font-weight:700;cursor:pointer}
-.btn:hover{background:var(--blue2)}
-.btn:disabled{opacity:.5;cursor:wait}
-form#co{display:none;padding:0 20px 16px;gap:8px;flex-direction:column}
-form#co.on{display:flex}
-form#co input,form#co textarea{background:var(--ink);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-size:.92rem}
-form#co textarea{resize:vertical;min-height:64px}
-.msg{padding:0 20px 12px;font-size:.88rem;color:var(--blue2)}
-.msg.err{color:#ff7a7a}
-
-/* about + footer */
-.ship{margin:64px 0 0;padding:34px;background:var(--panel);border:1px solid var(--line);border-radius:6px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
-.ship h2{font-family:var(--display);font-size:1.8rem;line-height:1.15}
-.ship p{color:var(--muted);margin-top:8px}
-.ship ul{list-style:none;display:grid;gap:8px;color:var(--muted);font-size:.93rem}
-.ship li::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-right:10px}
-footer{margin-top:64px;border-top:1px solid var(--line);padding:36px 0 28px;color:var(--muted);font-size:.9rem}
-.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:24px}
-footer h4{color:var(--text);margin-bottom:8px}
-footer a{display:block;padding:2px 0}
-footer a:hover{color:var(--blue2)}
-.copy{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem}
-
-@media(max-width:760px){
-  nav{display:none}
-  .bar{gap:10px}
-  .search{max-width:none}
-  .doors,.ship,.fgrid{grid-template-columns:1fr}
-  .trust{grid-template-columns:1fr 1fr}
-  .hero{padding-top:44px}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-</style>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <div class="announcement">
+    <span>✦ Worldwide shipping</span>
+    <span class="announcement-separator">|</span>
+    <span>Free shipping on orders over $50</span>
 
-<div class="strip">Free worldwide shipping on orders over $100</div>
+    <div class="announcement-right">
+      <span>Track Order</span>
+      <span>|</span>
+      <span>Help</span>
+      <span>|</span>
 
-<header>
-  <div class="wrap bar">
-    <a href="#top" class="logo">ZABISH<small>INDUSTRY</small></a>
-    <nav>
-      <a href="#shop" data-go="beauty">Beauty</a>
-      <a href="#shop" data-go="mens-fashion">Men's Fashion</a>
-      <a href="#delivery">Delivery</a>
+      <label class="currency-label" for="currency">Currency</label>
+      <select id="currency" aria-label="Choose currency">
+        <option value="USD">USD $</option>
+        <option value="GBP">GBP £</option>
+        <option value="EUR">EUR €</option>
+        <option value="PKR">PKR Rs.</option>
+      </select>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Zabish Industry home">
+      <span class="brand-mark">Z</span>
+      <span class="brand-text">ZABISH<small>INDUSTRY</small></span>
+    </a>
+
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a class="active" href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#beauty">Beauty</a>
+      <a href="#fashion">Men's Fashion</a>
+      <a href="#about">Our Story</a>
+      <a href="#footer">Contact</a>
     </nav>
-    <div class="search"><input id="q" type="search" placeholder="Search products" aria-label="Search products"></div>
-    <button class="cart-btn" id="openCart" aria-label="Open cart">Cart<span id="count">0</span></button>
-  </div>
-</header>
 
-<main id="top">
-  <section class="hero wrap">
-    <h1>ZABISH<em>INDUSTRY</em></h1>
-    <p>Premium beauty essentials and timeless men's fashion, delivered worldwide.</p>
-    <div class="doors">
-      <a class="door" href="#shop" data-go="beauty">
-        <h2>Beauty Products</h2>
-        <p>Skincare, makeup and beauty tools.</p>
-        <b>Shop beauty</b>
-      </a>
-      <a class="door alt" href="#shop" data-go="mens-fashion">
-        <h2>Men's Fashion</h2>
-        <p>Leather jackets, trousers and everyday clothing.</p>
-        <b>Shop men's fashion</b>
-      </a>
-    </div>
-    <div class="trust">
-      <div><strong>Worldwide shipping</strong>Tracked delivery</div>
-      <div><strong>Genuine products</strong>Quality checked</div>
-      <div><strong>Easy returns</strong>Clear return policy</div>
-      <div><strong>Secure checkout</strong>Your data stays private</div>
-    </div>
-  </section>
+    <div class="header-actions">
+      <form class="search-box" id="searchForm" role="search">
+        <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products" />
+        <button type="submit" aria-label="Search">⌕</button>
+      </form>
 
-  <section class="shop wrap" id="shop">
-    <div class="head">
-      <h2 id="shopTitle">All products</h2>
-      <div class="tabs" id="tabs">
-        <button class="tab on" data-cat="all">All</button>
-        <button class="tab" data-cat="beauty">Beauty Products</button>
-        <button class="tab" data-cat="mens-fashion">Men's Fashion</button>
+      <button class="icon-button account-button" aria-label="Account" title="Account">♙</button>
+      <button class="icon-button" id="wishlistToggle" aria-label="Show wishlist" title="Wishlist">♡<span class="count" id="wishlistCount">0</span></button>
+      <button class="icon-button cart-trigger" id="cartToggle" aria-label="Open cart" title="Shopping cart">🛒<span class="count" id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-image hero-beauty" role="img" aria-label="Beauty products and makeup brushes"></div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">ZABISH INDUSTRY PRESENTS</p>
+        <h1>Beauty &amp; Fashion<br><em>for a Better You</em></h1>
+
+        <p class="hero-description">
+          Thoughtfully selected beauty essentials and timeless men's fashion,
+          made for everyday confidence.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button button-blue" href="#beauty">Shop Beauty <span>→</span></a>
+          <a class="button button-outline" href="#fashion">Shop Men's Fashion <span>→</span></a>
+        </div>
+
+        <div class="hero-trust">
+          <span>◇ <small>Quality-first products</small></span>
+          <span>▣ <small>Secure shopping</small></span>
+          <span>↗ <small>Worldwide delivery</small></span>
+        </div>
       </div>
-    </div>
-    <div class="grid" id="grid"><p class="empty">Loading products...</p></div>
-  </section>
 
-  <section class="wrap" id="delivery">
-    <div class="ship">
+      <div class="hero-image hero-fashion" role="img" aria-label="Men's leather jacket and fashion"></div>
+
+      <button class="hero-arrow hero-prev" aria-label="Previous banner">‹</button>
+      <button class="hero-arrow hero-next" aria-label="Next banner">›</button>
+
+      <div class="hero-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+
+    <section class="category-strip" id="categories" aria-label="Shop by category">
+      <a class="category-item" href="#beauty" data-filter="beauty"><span class="category-picture">💄</span><strong>Makeup</strong><small>Shop now →</small></a>
+      <a class="category-item" href="#beauty" data-filter="beauty"><span class="category-picture">🧴</span><strong>Skincare</strong><small>Shop now →</small></a>
+      <a class="category-item" href="#beauty" data-filter="beauty"><span class="category-picture">🖌️</span><strong>Beauty Tools</strong><small>Shop now →</small></a>
+      <a class="category-item" href="#beauty" data-filter="beauty"><span class="category-picture">💅</span><strong>Nail Care</strong><small>Shop now →</small></a>
+      <a class="category-item" href="#beauty" data-filter="beauty"><span class="category-picture">👜</span><strong>Accessories</strong><small>Shop now →</small></a>
+
+      <a class="category-item category-divider" href="#fashion" data-filter="fashion"><span class="category-picture">🧥</span><strong>Leather Jackets</strong><small>Shop now →</small></a>
+      <a class="category-item" href="#fashion" data-filter="fashion"><span class="category-picture">👖</span><strong>Trousers</strong><small>Shop now →</small></a>
+      <a class="category-item" href="#fashion" data-filter="fashion"><span class="category-picture">🧥</span><strong>Hoodies</strong><small>Shop now →</small></a>
+      <a class="category-item" href="#fashion" data-filter="fashion"><span class="category-picture">👔</span><strong>Shirts</strong><small>Shop now →</small></a>
+      <a class="category-item" href="#fashion" data-filter="fashion"><span class="category-picture">⌚</span><strong>Accessories</strong><small>Shop now →</small></a>
+    </section>
+
+    <section class="feature-section section-wrap" id="beauty">
+      <div class="feature-copy">
+        <p class="eyebrow">THE BEAUTY EDIT</p>
+        <h2>Feel Beautiful<br><em>Every Day</em></h2>
+        <p>Skincare, makeup, nail care and beauty tools for your everyday routine.</p>
+        <a class="button button-outline" href="#beautyProducts">Explore Beauty <span>→</span></a>
+      </div>
+
+      <div class="feature-photo beauty-feature-photo" role="img" aria-label="Beauty collection"></div>
+
+      <div class="feature-benefits">
+        <div><span class="benefit-icon">✧</span><p><strong>Beauty essentials</strong><small>Everyday favourites</small></p></div>
+        <div><span class="benefit-icon">♧</span><p><strong>Thoughtful selection</strong><small>Products for your routine</small></p></div>
+        <div><span class="benefit-icon">♡</span><p><strong>Feel your best</strong><small>Confidence in every detail</small></p></div>
+      </div>
+    </section>
+
+    <section class="products-section section-wrap" id="beautyProducts">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DISCOVER YOUR FAVOURITES</p>
+          <h2>Beauty Bestsellers</h2>
+        </div>
+        <a href="#categories" class="text-link">View all beauty →</a>
+      </div>
+      <div class="product-grid" id="beautyGrid"></div>
+    </section>
+
+    <section class="fashion-banner section-wrap" id="fashion">
+      <div class="fashion-banner-copy">
+        <p class="eyebrow">THE MEN'S COLLECTION</p>
+        <h2>Upgrade Your Style</h2>
+        <p>Modern layers, timeless staples and details that make the look.</p>
+        <a class="button button-blue" href="#fashionProducts">Explore Men's Fashion <span>→</span></a>
+      </div>
+
+      <div class="fashion-banner-image" role="img" aria-label="Men's leather jacket collection"></div>
+
+      <div class="fashion-perks">
+        <div><span>✦</span><strong>Modern styles</strong><small>Made for every day</small></div>
+        <div><span>◇</span><strong>Comfort first</strong><small>Easy-to-wear fits</small></div>
+        <div><span>↗</span><strong>Worldwide delivery</strong><small>Shipping options at checkout</small></div>
+      </div>
+    </section>
+
+    <section class="products-section section-wrap" id="fashionProducts">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MADE TO BE WORN</p>
+          <h2>Men's Fashion Picks</h2>
+        </div>
+        <a href="#categories" class="text-link">View all fashion →</a>
+      </div>
+      <div class="product-grid" id="fashionGrid"></div>
+    </section>
+
+    <section class="promise-strip">
+      <div><span class="promise-icon">◎</span><p><strong>Worldwide shipping</strong><small>Available destinations vary</small></p></div>
+      <div><span class="promise-icon">♢</span><p><strong>Secure checkout</strong><small>Protected payment providers</small></p></div>
+      <div><span class="promise-icon">↻</span><p><strong>Easy returns</strong><small>See our return policy</small></p></div>
+
+      <div class="newsletter">
+        <span class="promise-icon">✉</span>
+        <div>
+          <strong>Join our newsletter</strong>
+          <small>New arrivals and occasional offers.</small>
+        </div>
+        <form id="newsletterForm">
+          <input id="newsletterEmail" type="email" placeholder="Your email address" required aria-label="Your email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="#home">
+          <span class="brand-mark">Z</span>
+          <span class="brand-text">ZABISH<small>INDUSTRY</small></span>
+        </a>
+        <p>Beauty · Fashion · Lifestyle</p>
+        <div class="social-links">
+          <a href="#footer" aria-label="Instagram">ig</a>
+          <a href="#footer" aria-label="Facebook">f</a>
+          <a href="#footer" aria-label="TikTok">♪</a>
+          <a href="#footer" aria-label="Pinterest">p</a>
+        </div>
+      </div>
+
       <div>
-        <h2>Shipping to your door, wherever you are</h2>
-        <p>We ship internationally. Delivery times and costs are shown at checkout, and you can track your order once it ships.</p>
+        <h3>Explore</h3>
+        <a href="#home">Home</a>
+        <a href="#beauty">Beauty</a>
+        <a href="#fashion">Men's Fashion</a>
+        <a href="#about">Our Story</a>
       </div>
-      <ul>
-        <li>Free shipping over $100</li>
-        <li>Tracked international delivery</li>
-        <li>Support by email, every day</li>
-      </ul>
-    </div>
-  </section>
-</main>
 
-<footer>
-  <div class="wrap">
-    <div class="fgrid">
       <div>
-        <div class="logo">ZABISH<small>INDUSTRY</small></div>
-        <p style="margin-top:12px;max-width:320px">Premium beauty and men's fashion for people who care how they look and feel.</p>
+        <h3>Customer care</h3>
+        <a href="#footer">Shipping information</a>
+        <a href="#footer">Returns &amp; refunds</a>
+        <a href="#footer">Privacy policy</a>
+        <a href="#footer">FAQs</a>
       </div>
+
       <div>
-        <h4>Shop</h4>
-        <a href="#shop" data-go="beauty">Beauty Products</a>
-        <a href="#shop" data-go="mens-fashion">Men's Fashion</a>
-      </div>
-      <div>
-        <h4>Help</h4>
-        <a href="#delivery">Shipping</a>
-        <a href="mailto:simplepatingskills@gmail.com">Contact us</a>
+        <h3>Shopping with confidence</h3>
+        <p>Clear product details, helpful support and transparent delivery information.</p>
+        <div class="payment-logos">
+          <span>VISA</span>
+          <span>MC</span>
+          <span>PayPal</span>
+          <span>G Pay</span>
+        </div>
       </div>
     </div>
-    <div class="copy">&copy; <span id="yr"></span> Zabish Industry. All rights reserved.</div>
-  </div>
-</footer>
 
-<div class="shade" id="shade"></div>
-<aside id="drawer" aria-label="Shopping cart">
-  <header><h2>Your cart</h2><button class="x" id="closeCart" aria-label="Close cart">&times;</button></header>
-  <div class="lines" id="lines"></div>
-  <form id="co">
-    <input name="name" placeholder="Full name" required autocomplete="name">
-    <input name="email" type="email" placeholder="Email" required autocomplete="email">
-    <input name="phone" placeholder="Phone number" autocomplete="tel">
-    <input name="country" placeholder="Country" required autocomplete="country-name">
-    <textarea name="address" placeholder="Delivery address" required autocomplete="street-address"></textarea>
-    <button class="btn" id="placeBtn" type="submit">Place order</button>
-  </form>
-  <div class="msg" id="msg" role="status"></div>
-  <div class="foot" id="foot">
-    <div class="total"><span>Total</span><span id="total">$0.00</span></div>
-    <button class="btn" id="checkoutBtn">Checkout</button>
-  </div>
-</aside>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Zabish Industry. All rights reserved.</span>
+      <span>Beauty · Fashion · Lifestyle</span>
+    </div>
+  </footer>
 
-<!-- Supabase library, then your keys file -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js"></script>
-<script>
-(function(){
-  // Sample products, shown only if Supabase has no data or cannot be reached
-  var SAMPLE=[
-    {id:"s1",name:"Hydrating Face Serum",description:"Daily hydrating serum for glowing skin",price:29.99,old_price:39.99,stock:50,rating:4.8,categories:{name:"Beauty Products",slug:"beauty"}},
-    {id:"s2",name:"Matte Lipstick Set",description:"Long-lasting matte lipstick, 4 shades",price:24.99,old_price:34.99,stock:40,rating:4.6,categories:{name:"Beauty Products",slug:"beauty"}},
-    {id:"s3",name:"Classic Leather Jacket",description:"Premium genuine leather biker jacket",price:189.99,old_price:249.99,stock:15,rating:4.9,categories:{name:"Men's Fashion",slug:"mens-fashion"}},
-    {id:"s4",name:"Slim Fit Trousers",description:"Comfortable slim fit trousers for everyday wear",price:59.99,old_price:79.99,stock:30,rating:4.5,categories:{name:"Men's Fashion",slug:"mens-fashion"}}
-  ];
-  var products=[], cat="all", query="", cart=load();
-  var $=function(id){return document.getElementById(id)};
-  var money=function(n){return "$"+Number(n).toFixed(2)};
-  var esc=function(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})};
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
-  function load(){try{return JSON.parse(localStorage.getItem("zabish_cart")||"[]")}catch(e){return []}}
-  function save(){try{localStorage.setItem("zabish_cart",JSON.stringify(cart))}catch(e){}}
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-heading">
+      <div>
+        <p class="eyebrow">YOUR SELECTION</p>
+        <h2>Your Cart <span id="drawerCount">(0)</span></h2>
+      </div>
+      <button class="close-drawer" id="closeCart" aria-label="Close cart">×</button>
+    </div>
 
-  async function init(){
-    $("yr").textContent=new Date().getFullYear();
-    try{
-      if(typeof supabaseClient==="undefined") throw new Error("Supabase not configured");
-      var r=await supabaseClient.from("products").select("*, categories(name, slug)").eq("is_active",true).order("created_at",{ascending:false});
-      if(r.error) throw r.error;
-      products=r.data&&r.data.length?r.data:SAMPLE;
-    }catch(e){console.warn("Using sample products:",e);products=SAMPLE}
-    render();renderCart();
-  }
+    <div class="cart-items" id="cartItems"></div>
 
-  function render(){
-    var list=products.filter(function(p){
-      var slug=p.categories&&p.categories.slug;
-      var okCat=cat==="all"||slug===cat;
-      var okQ=!query||(p.name+" "+(p.description||"")).toLowerCase().indexOf(query)>-1;
-      return okCat&&okQ;
-    });
-    $("shopTitle").textContent=cat==="beauty"?"Beauty Products":cat==="mens-fashion"?"Men's Fashion":"All products";
-    $("grid").innerHTML=list.length?list.map(card).join(""):'<p class="empty">No products found. Try another search or category.</p>';
-  }
+    <div class="cart-bottom">
+      <div class="subtotal">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <p>Shipping and taxes are calculated at checkout.</p>
+      <button class="button button-blue checkout-button" id="checkoutButton">Continue to checkout →</button>
+      <small class="demo-note">Demo storefront: checkout is not connected to a payment provider.</small>
+    </div>
+  </aside>
 
-  function card(p){
-    var off=p.old_price&&p.old_price>p.price?Math.round((1-p.price/p.old_price)*100):0;
-    var out=p.stock<=0;
-    var img=p.image_url?'<img src="'+esc(p.image_url)+'" alt="'+esc(p.name)+'" loading="lazy">':'<span class="ph">'+esc(p.name.charAt(0))+'</span>';
-    return '<article class="card"><div class="pic">'+img+(off?'<span class="tag">-'+off+'%</span>':'')+'</div>'+
-      '<div class="info"><span class="cat">'+esc(p.categories?p.categories.name:"")+'</span>'+
-      '<h3>'+esc(p.name)+'</h3><p class="d">'+esc(p.description)+'</p>'+
-      '<span class="rate">'+Number(p.rating||0).toFixed(1)+' / 5</span>'+
-      '<div class="price"><b>'+money(p.price)+'</b>'+(off?'<s>'+money(p.old_price)+'</s>':'')+'</div>'+
-      '<button class="add" data-id="'+esc(p.id)+'"'+(out?' disabled':'')+'>'+(out?'Out of stock':'Add to cart')+'</button></div></article>';
-  }
-
-  function renderCart(){
-    var n=0,t=0;
-    $("lines").innerHTML=cart.length?cart.map(function(i){
-      n+=i.qty;t+=i.qty*i.price;
-      return '<div class="line"><div><strong>'+esc(i.name)+'</strong><small>'+money(i.price)+' each</small>'+
-        '<div class="qty"><button data-d="-1" data-id="'+esc(i.id)+'" aria-label="Decrease">-</button><span>'+i.qty+'</span><button data-d="1" data-id="'+esc(i.id)+'" aria-label="Increase">+</button></div></div>'+
-        '<strong>'+money(i.qty*i.price)+'</strong></div>';
-    }).join(""):'<p class="empty" style="padding:30px 0">Your cart is empty. Add a product to get started.</p>';
-    $("count").textContent=n;$("total").textContent=money(t);
-    $("checkoutBtn").disabled=!cart.length;
-    save();
-  }
-
-  function setMsg(t,err){var m=$("msg");m.textContent=t||"";m.className="msg"+(err?" err":"")}
-  function openCart(){$("drawer").classList.add("on");$("shade").classList.add("on")}
-  function closeCart(){$("drawer").classList.remove("on");$("shade").classList.remove("on")}
-  function goCat(c){cat=c;
-    [].forEach.call(document.querySelectorAll(".tab"),function(t){t.classList.toggle("on",t.dataset.cat===c)});
-    render();}
-
-  document.addEventListener("click",function(e){
-    var go=e.target.closest("[data-go]");if(go)goCat(go.dataset.go);
-    var tab=e.target.closest(".tab");if(tab)goCat(tab.dataset.cat);
-    var add=e.target.closest(".add");
-    if(add){
-      var p=products.find(function(x){return String(x.id)===add.dataset.id});if(!p)return;
-      var ex=cart.find(function(i){return String(i.id)===String(p.id)});
-      if(ex){if(ex.qty<p.stock)ex.qty++}else cart.push({id:p.id,name:p.name,price:Number(p.price),qty:1});
-      setMsg("");renderCart();openCart();
-    }
-    var q=e.target.closest(".qty button");
-    if(q){
-      var it=cart.find(function(i){return String(i.id)===q.dataset.id});
-      if(it){it.qty+=Number(q.dataset.d);if(it.qty<=0)cart=cart.filter(function(i){return i!==it});renderCart()}
-    }
-  });
-  $("q").addEventListener("input",function(e){query=e.target.value.trim().toLowerCase();render()});
-  $("openCart").onclick=openCart;$("closeCart").onclick=closeCart;$("shade").onclick=closeCart;
-  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeCart()});
-  $("checkoutBtn").onclick=function(){$("co").classList.add("on");$("foot").style.display="none";setMsg("")};
-
-  $("co").addEventListener("submit",async function(e){
-    e.preventDefault();
-    if(!cart.length)return;
-    var f=new FormData(e.target),btn=$("placeBtn");
-    btn.disabled=true;setMsg("Placing your order...");
-    var total=cart.reduce(function(s,i){return s+i.qty*i.price},0);
-    try{
-      if(typeof supabaseClient==="undefined") throw new Error("Supabase not configured");
-      var r=await supabaseClient.from("orders").insert({
-        customer_name:f.get("name"),email:f.get("email"),phone:f.get("phone"),
-        country:f.get("country"),address:f.get("address"),
-        items:cart,total:Number(total.toFixed(2))
-      });
-      if(r.error) throw r.error;
-      cart=[];renderCart();e.target.reset();
-      $("co").classList.remove("on");$("foot").style.display="";
-      setMsg("Thank you. Your order was received. We will email you the details.");
-    }catch(err){
-      console.error(err);
-      setMsg("Order could not be placed. Check your connection and try again.",true);
-    }
-    btn.disabled=false;
-  });
-
-  init();
-})();
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
