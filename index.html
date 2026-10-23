@@ -525,6 +525,31 @@ $("newsletterForm").addEventListener("submit",e=>{
  toast("Demo form only — connect an email service to subscribe.");
  $("emailInput").value="";
 });
+  
+/* Load homepage banner images saved by the admin page */
+function loadAdminHomeBanners() {
+  try {
+    const home = JSON.parse(localStorage.getItem("zabish_home")) || {};
+
+    const beautyBanner = document.querySelector(".beauty-image");
+    const fashionBanner = document.querySelector(".fashion-image");
+
+    if (beautyBanner && home["hero-beauty"]) {
+      beautyBanner.style.backgroundImage =
+        `url("${home["hero-beauty"]}")`;
+    }
+
+    if (fashionBanner && home["hero-fashion"]) {
+      fashionBanner.style.backgroundImage =
+        `url("${home["hero-fashion"]}")`;
+    }
+  } catch (error) {
+    console.error("Could not load admin banner images:", error);
+  }
+}
+
+loadAdminHomeBanners();
+
 $("year").textContent=new Date().getFullYear();
 renderProducts();
 renderCart();
