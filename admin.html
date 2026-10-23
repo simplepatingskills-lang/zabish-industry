@@ -175,7 +175,7 @@ function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");cle
 
 /* ===== LOGIN ===== */
 function enter(){$("login").classList.add("hide");$("app").classList.remove("hide");load();go("dash")}
-if(sessionStorage.getItem("zabish_admin")==="1")enter();
+
 $("loginBtn").onclick=()=>{if($("pw").value===ADMIN_PASSWORD){sessionStorage.setItem("zabish_admin","1");enter()}else toast("Wrong password")};
 $("pw").onkeydown=e=>{if(e.key==="Enter")$("loginBtn").click()};
 $("logoutBtn").onclick=()=>{sessionStorage.removeItem("zabish_admin");location.reload()};
@@ -340,6 +340,8 @@ $("sampleBtn").onclick=()=>{
  const ids=new Set(products.map(p=>p.id));SAMPLE.forEach(p=>{if(!ids.has(p.id))products.push(p)});
  save();go(view);toast("Sample products loaded");
 };
+/* ===== AUTO LOGIN (sab functions ban jane ke baad) ===== */
+if(sessionStorage.getItem("zabish_admin")==="1")enter();
 </script>
 </body>
 </html>
