@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Zabish Admin Panel</title>
+<style>
+:root{--bg:#030812;--panel:#081525;--blue:#078bff;--cyan:#00d5ff;--text:#f2f8ff;--muted:#9cb1c9;--border:rgba(0,163,255,.3);--red:#c42b45;--amber:#e8a317}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;font-size:14px;min-height:100vh}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.hide{display:none!important}
+.side{position:fixed;left:0;top:0;bottom:0;width:240px;background:#02060d;border-right:1px solid var(--border);display:flex;flex-direction:column;padding:20px 14px;z-index:5}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:3px;font-size:16px;padding:0 8px 22px}
+.brand i{width:34px;height:34px;display:grid;place-items:center;border-radius:8px;background:linear-gradient(135deg,#5ceaff,#075bff);color:#00101f;font-style:italic;font-weight:900;font-size:20px;letter-spacing:0}
+.brand small{display:block;font-size:9px;letter-spacing:4px;color:var(--cyan)}
+.nav button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;color:var(--muted);padding:11px 12px;border-radius:9px;margin-bottom:4px;font-weight:600}
+.nav button:hover{background:#0a2037;color:#fff}
+.nav button.on{background:linear-gradient(90deg,#0a2f5e,#08203c);color:var(--cyan);box-shadow:inset 3px 0 var(--cyan)}
+.nav .cnt{margin-left:auto;background:#0a2a52;border-radius:20px;font-size:11px;padding:1px 8px;color:#cfe6ff}
+.nav .cnt.alert{background:var(--amber);color:#201400}
+.nav h6{font-size:10px;letter-spacing:2px;color:#5f7794;margin:16px 12px 8px}
+.side .foot{margin-top:auto;display:grid;gap:7px}
+.side .who{font-size:11px;color:var(--muted);word-break:break-all;padding:0 4px}
+.main{margin-left:240px;padding:26px 32px 50px}
+.head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.head h1{font-size:24px}.head p{color:var(--muted);font-size:13px;margin-top:3px}
+.btn{background:linear-gradient(135deg,#10caff,#075bff);color:#fff;border:0;padding:10px 18px;border-radius:9px;font-weight:700;font-size:13px}
+.btn:hover{filter:brightness(1.15)}.btn.ghost{background:#0a2037;border:1px solid var(--border)}.btn.red{background:var(--red)}.btn.sm{padding:6px 12px;font-size:12px}
+a.btn{text-decoration:none;display:inline-block;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px}
+.stat span{font-size:12px;color:var(--muted)}.stat b{display:block;font-size:26px;margin-top:6px}.stat.warn b{color:var(--amber)}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:18px}
+.card h2{font-size:16px;margin-bottom:10px}
+.tools{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.tools input,.tools select,td select{background:#071321;border:1px solid #284661;color:#fff;padding:9px 12px;border-radius:9px}
+.tools input{flex:1;min-width:180px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:680px}
+th{text-align:left;font-size:11px;letter-spacing:1px;color:var(--muted);padding:10px;border-bottom:1px solid var(--border);font-weight:600}
+td{padding:11px 10px;border-bottom:1px solid #112a44;vertical-align:middle}tr:hover td{background:#0a1b2e}
+.pi{display:flex;align-items:center;gap:12px}.pi img{width:52px;height:52px;border-radius:8px;object-fit:cover;background:#071321}
+.pi b{display:block;font-size:13px}.pi small{color:var(--muted)}
+.price b{color:var(--cyan)}.price s{color:#71869d;font-size:11px;margin-left:5px}
+.pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600}
+.ok{background:#0c3b2a;color:#4be29c}.low{background:#47330a;color:#ffc24a}.out{background:#4a1220;color:#ff7790}.off{background:#16283b;color:#9cb1c9}.disc{background:#0a2a52;color:#7cc4ff;margin-left:6px}
+.s-Pending{background:#47330a;color:#ffc24a}.s-Processing{background:#0a2a52;color:#7cc4ff}.s-Shipped{background:#2c1d57;color:#b79cff}.s-Delivered{background:#0c3b2a;color:#4be29c}.s-Cancelled{background:#4a1220;color:#ff7790}
+.acts{display:flex;gap:6px}.empty{text-align:center;color:var(--muted);padding:34px 10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.cat{background:linear-gradient(145deg,#0b2845,#06111e);border:1px solid var(--border);border-radius:14px;padding:22px}
+.cat h2{font-size:19px;margin-bottom:4px}.cat p{color:var(--muted);font-size:13px;margin-bottom:16px}
+.cat .row{display:flex;gap:26px;margin-bottom:18px}.cat .row b{display:block;font-size:22px}.cat .row span{font-size:12px;color:var(--muted)}
+.list li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #112a44;list-style:none}
+dialog{margin:auto;width:min(680px,95vw);max-height:92vh;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:14px;padding:0;overflow:auto}
+dialog::backdrop{background:#000b}
+.mh{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--panel);z-index:1}
+.mh h2{font-size:18px}.x{background:none;border:0;color:#fff;font-size:26px}.mb{padding:18px 22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:12px;color:var(--muted);margin:12px 0 4px}
+.mb input,.mb select,.mb textarea,.login input{width:100%;background:#071321;border:1px solid #284661;color:#fff;padding:10px;border-radius:8px}
+.mb textarea{resize:vertical;min-height:70px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips label{display:flex;align-items:center;gap:6px;margin:0;padding:7px 12px;border:1px solid #284661;border-radius:8px;color:#fff;cursor:pointer}.chips input{width:auto}
+.prev{width:100%;height:190px;object-fit:cover;border-radius:10px;border:1px dashed #284661;background:#071321;margin-top:8px;display:block}
+.mf{display:flex;justify-content:flex-end;gap:10px;padding:16px 22px;border-top:1px solid var(--border);position:sticky;bottom:0;background:var(--panel)}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:13px;margin-bottom:14px}.kv span{color:var(--muted)}
+.login{max-width:360px;margin:12vh auto;text-align:center}.login input{margin:6px 0}
+.login .note{font-size:12px;color:var(--amber);margin-top:12px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#0b2944;border:1px solid var(--cyan);padding:11px 18px;border-radius:10px;transition:.25s;font-size:13px;z-index:99}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){
+ .side{position:static;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:12px;gap:8px}
+ .brand{padding:0 8px 0 0}.nav{display:flex;gap:4px;flex-wrap:wrap}.nav h6,.side .who{display:none}.nav button{width:auto;margin:0}
+ .side .foot{margin:0 0 0 auto;display:flex}.main{margin:0;padding:18px 14px 40px}.stats,.two,.grid2{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){.stats,.two,.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<form class="login card" id="login">
+  <h2>Zabish <span style="color:var(--cyan)">Admin</span></h2>
+  <p style="color:var(--muted);font-size:13px;margin:6px 0 12px">Admin login</p>
+  <input type="email" id="em" placeholder="Email" autocomplete="username" required aria-label="Email">
+  <input type="password" id="pw" placeholder="Password" autocomplete="current-password" required aria-label="Password">
+  <button class="btn" style="width:100%;margin-top:8px">Login</button>
+  <p class="note hide" id="cfgNote">Pehle file ke upar firebaseConfig mein apni Firebase details paste karein.</p>
+</form>
+
+<div id="app" class="hide">
+  <aside class="side">
+    <div class="brand"><i>Z</i><div>ZABISH<small>ADMIN</small></div></div>
+    <nav class="nav" id="nav">
+      <button data-v="dash" class="on">▦ Dashboard</button>
+      <button data-v="orders">🧾 Orders <span class="cnt" id="c-orders">0</span></button>
+      <h6>PRODUCTS</h6>
+      <button data-v="beauty">✂ Beauty Tools <span class="cnt" id="c-beauty">0</span></button>
+      <button data-v="fashion">👔 Men's Clothing <span class="cnt" id="c-fashion">0</span></button>
+    </nav>
+    <div class="foot">
+      <div class="who" id="who"></div>
+      <a class="btn ghost sm" href="index.html" target="_blank">View Store ↗</a>
+      <button class="btn red sm" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+  <main class="main" id="view"></main>
+</div>
+
+<dialog id="dlg"><form id="form" method="dialog"></form></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,signInWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,collection,onSnapshot,addDoc,updateDoc,deleteDoc,doc,query,orderBy,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* ========= 1) APNI FIREBASE DETAILS YAHAN PASTE KAREIN ========= */
+const firebaseConfig={
+  apiKey:"PASTE_API_KEY",
+  authDomain:"PASTE_PROJECT.firebaseapp.com",
+  projectId:"PASTE_PROJECT_ID",
+  appId:"PASTE_APP_ID"
+};
+/* ================================================================= */
+
+const LOW=5;
+const STATUS=["Pending","Processing","Shipped","Delivered","Cancelled"];
+const CFG={
+ beauty:{label:"Beauty Tools",sub:"Scissors, tweezers, clippers, nippers aur manicure sets",types:["Hair Scissors","Tweezers","Nail Clippers","Cuticle Nippers","Manicure Sets","Other"],detail:"Material",ph:"e.g. Stainless Steel",sizes:null},
+ fashion:{label:"Men's Clothing",sub:"Jackets, hoodies, trousers, shirts aur t-shirts",types:["Leather Jackets","Hoodies","Trousers","Shirts","T-Shirts","Other"],detail:"Fabric",ph:"e.g. Cotton Blend",sizes:["S","M","L","XL","XXL"]}
+};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const money=n=>"$"+Number(n||0).toFixed(2);
+const dt=o=>o.createdAt?.toDate?o.createdAt.toDate().toLocaleDateString():"";
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),3000)}
+
+let db,auth,products=[],orders=[],view="dash",img="",q="",tf="all",unsubs=[];
+const configured=!firebaseConfig.apiKey.startsWith("PASTE");
+if(!configured){$("cfgNote").classList.remove("hide")}
+else{const app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);
+ onAuthStateChanged(auth,u=>u?start(u):stop());}
+
+/* ===== LOGIN ===== */
+$("login").onsubmit=async e=>{
+ e.preventDefault();
+ if(!configured)return toast("Firebase config paste karna baqi hai");
+ try{await signInWithEmailAndPassword(auth,$("em").value.trim(),$("pw").value)}
+ catch(x){toast("Email ya password ghalat hai")}
+};
+$("logoutBtn").onclick=()=>signOut(auth);
+function start(u){
+ $("login").classList.add("hide");$("app").classList.remove("hide");$("who").textContent=u.email;
+ unsubs.push(onSnapshot(collection(db,"products"),s=>{products=s.docs.map(d=>({...d.data(),id:d.id}));refresh()},()=>toast("Products load nahi hue (rules check karein)")));
+ unsubs.push(onSnapshot(query(collection(db,"orders"),orderBy("createdAt","desc")),s=>{orders=s.docs.map(d=>({...d.data(),id:d.id}));refresh()},()=>toast("Orders load nahi hue (rules check karein)")));
+ go("dash");
+}
+function stop(){unsubs.forEach(f=>f());unsubs=[];$("app").classList.add("hide");$("login").classList.remove("hide");$("pw").value=""}
+
+/* ===== NAV ===== */
+const inCat=c=>products.filter(p=>p.cat===c);
+const pending=()=>orders.filter(o=>o.status==="Pending").length;
+function counts(){
+ $("c-beauty").textContent=inCat("beauty").length;$("c-fashion").textContent=inCat("fashion").length;
+ const c=$("c-orders");c.textContent=pending()||orders.length;c.classList.toggle("alert",pending()>0);
+}
+function go(v){
+ view=v;q="";tf="all";
+ document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));
+ v==="dash"?renderDash():v==="orders"?renderOrders():renderCat(v);counts();
+}
+function refresh(){
+ counts();
+ if(view==="dash")renderDash();else if(view==="orders")orderRows();else{catStats(view);rows(view)}
+}
+$("nav").onclick=e=>{const b=e.target.closest("button[data-v]");if(b)go(b.dataset.v)};
+
+/* ===== HELPERS ===== */
+const stk=n=>n<=0?'<span class="pill out">Out of stock</span>':n<=LOW?`<span class="pill low">Low · ${n}</span>`:`<span class="pill ok">${n} in stock</span>`;
+const off=p=>p.old>p.price?Math.round((1-p.price/p.old)*100):0;
+function stats(c){const l=inCat(c);return{n:l.length,units:l.reduce((s,p)=>s+(+p.stock||0),0),low:l.filter(p=>(+p.stock||0)<=LOW).length,avg:l.length?l.reduce((s,p)=>s+p.price,0)/l.length:0}}
+
+/* ===== DASHBOARD ===== */
+function renderDash(){
+ const low=products.filter(p=>(+p.stock||0)<=LOW);
+ const rev=orders.filter(o=>o.status!=="Cancelled").reduce((s,o)=>s+(+o.total||0),0);
+ $("view").innerHTML=`
+ <div class="head"><div><h1>Dashboard</h1><p>Aapke store ka overview</p></div></div>
+ <div class="stats">
+  <div class="stat"><span>Total orders</span><b>${orders.length}</b></div>
+  <div class="stat ${pending()?"warn":""}"><span>Pending orders</span><b>${pending()}</b></div>
+  <div class="stat"><span>Sales (cancelled ke baghair)</span><b>${money(rev)}</b></div>
+  <div class="stat"><span>Total products</span><b>${products.length}</b></div></div>
+ <div class="two">${["beauty","fashion"].map(c=>{const s=stats(c);return`
+  <div class="cat"><h2>${CFG[c].label}</h2><p>${CFG[c].sub}</p>
+   <div class="row"><div><b>${s.n}</b><span>Products</span></div><div><b>${s.units}</b><span>Units</span></div><div><b>${s.low}</b><span>Low stock</span></div></div>
+   <button class="btn" data-open="${c}">Manage ${CFG[c].label} →</button></div>`}).join("")}</div>
+ <div class="two">
+  <div class="card"><h2>Recent orders</h2>${orders.length?`<ul class="list">${orders.slice(0,5).map(o=>`<li><span>${esc(o.name)} <small style="color:var(--muted)">${money(o.total)}</small></span><span class="pill s-${o.status}">${o.status}</span></li>`).join("")}</ul>`:'<p class="empty">Abhi koi order nahi aaya.</p>'}</div>
+  <div class="card"><h2>Low / out of stock</h2>${low.length?`<ul class="list">${low.map(p=>`<li><span>${esc(p.name)}</span>${stk(+p.stock||0)}</li>`).join("")}</ul>`:'<p class="empty">Sab stock theek hai ✓</p>'}</div></div>`;
+}
+
+/* ===== CATEGORY PAGE ===== */
+function renderCat(c){
+ const k=CFG[c];
+ $("view").innerHTML=`
+ <div class="head"><div><h1>${k.label}</h1><p>${k.sub}</p></div><button class="btn" id="addBtn">+ Add ${c==="beauty"?"beauty product":"clothing item"}</button></div>
+ <div class="stats" id="cs"></div>
+ <div class="card"><div class="tools">
+  <input id="q" placeholder="Search ${k.label.toLowerCase()}..." aria-label="Search">
+  <select id="tf" aria-label="Type"><option value="all">All types</option>${k.types.map(t=>`<option>${t}</option>`).join("")}</select></div>
+  <div class="tw"><table><thead><tr><th>PRODUCT</th><th>${k.detail.toUpperCase()}</th><th>PRICE</th><th>STOCK</th><th></th></tr></thead><tbody id="tb"></tbody></table></div></div>`;
+ $("q").oninput=e=>{q=e.target.value.toLowerCase();rows(c)};
+ $("tf").onchange=e=>{tf=e.target.value;rows(c)};
+ catStats(c);rows(c);
+}
+function catStats(c){const s=stats(c);$("cs").innerHTML=`
+ <div class="stat"><span>Total products</span><b>${s.n}</b></div><div class="stat"><span>Units in stock</span><b>${s.units}</b></div>
+ <div class="stat ${s.low?"warn":""}"><span>Low / out of stock</span><b>${s.low}</b></div><div class="stat"><span>Average price</span><b>${money(s.avg)}</b></div>`}
+function rows(c){
+ const l=inCat(c).filter(p=>(tf==="all"||p.type===tf)&&(p.name+" "+(p.material||"")+" "+(p.type||"")).toLowerCase().includes(q));
+ $("tb").innerHTML=l.length?l.map(p=>`<tr>
+  <td><div class="pi"><img src="${esc(p.image)}" alt=""><div><b>${esc(p.name)}${p.visible===false?' <span class="pill off">Hidden</span>':""}</b><small>${esc(p.type||"")}${p.sizes?.length?" · "+p.sizes.join(", "):""}${p.color?" · "+esc(p.color):""}</small></div></div></td>
+  <td>${esc(p.material)}</td>
+  <td class="price"><b>${money(p.price)}</b>${p.old>p.price?`<s>${money(p.old)}</s><span class="pill disc">-${off(p)}%</span>`:""}</td>
+  <td>${stk(+p.stock||0)}</td>
+  <td><div class="acts"><button class="btn sm" data-edit="${p.id}">Edit</button><button class="btn sm red" data-del="${p.id}">Delete</button></div></td></tr>`).join("")
+  :`<tr><td colspan="5" class="empty">Koi product nahi mila. Upar "Add" button se naya product shamil karein.</td></tr>`;
+}
+
+/* ===== ORDERS ===== */
+function renderOrders(){
+ $("view").innerHTML=`
+ <div class="head"><div><h1>Orders</h1><p>Customers ke orders dekhein aur status badlein</p></div></div>
+ <div class="card"><div class="tools"><select id="of" aria-label="Status"><option value="all">All orders</option>${STATUS.map(s=>`<option>${s}</option>`).join("")}</select></div>
+ <div class="tw"><table><thead><tr><th>CUSTOMER</th><th>DATE</th><th>ITEMS</th><th>TOTAL</th><th>STATUS</th><th></th></tr></thead><tbody id="ob"></tbody></table></div></div>`;
+ $("of").onchange=e=>{tf=e.target.value;orderRows()};
+ orderRows();
+}
+function orderRows(){
+ if(!$("ob"))return;
+ const l=orders.filter(o=>tf==="all"||o.status===tf);
+ $("ob").innerHTML=l.length?l.map(o=>`<tr>
+  <td><b>${esc(o.name)}</b><br><small style="color:var(--muted)">${esc(o.phone||o.email||"")}</small></td>
+  <td>${dt(o)}</td><td>${(o.items||[]).reduce((s,i)=>s+(+i.qty||1),0)}</td><td class="price"><b>${money(o.total)}</b></td>
+  <td><select data-st="${o.id}">${STATUS.map(s=>`<option ${o.status===s?"selected":""}>${s}</option>`).join("")}</select></td>
+  <td><div class="acts"><button class="btn sm" data-view="${o.id}">Details</button><button class="btn sm red" data-delo="${o.id}">Delete</button></div></td></tr>`).join("")
+  :`<tr><td colspan="6" class="empty">Koi order nahi mila.</td></tr>`;
+}
+function orderDetail(id){
+ const o=orders.find(x=>x.id===id);if(!o)return;
+ $("form").onsubmit=null;
+ $("form").innerHTML=`<div class="mh"><h2>Order details</h2><button class="x" type="button" id="xBtn" aria-label="Close">×</button></div><div class="mb">
+  <div class="kv"><span>Name</span><b>${esc(o.name)}</b><span>Phone</span><b>${esc(o.phone)}</b><span>Email</span><b>${esc(o.email)}</b>
+  <span>Address</span><b>${esc([o.address,o.city,o.country].filter(Boolean).join(", "))}</b><span>Date</span><b>${dt(o)}</b><span>Status</span><b><span class="pill s-${o.status}">${o.status}</span></b></div>
+  <table style="min-width:0"><thead><tr><th>ITEM</th><th>QTY</th><th>PRICE</th></tr></thead><tbody>${(o.items||[]).map(i=>`<tr><td>${esc(i.name)}</td><td>${i.qty}</td><td>${money(i.price)}</td></tr>`).join("")}</tbody></table>
+  <p style="text-align:right;margin-top:14px;font-size:16px">Total: <b style="color:var(--cyan)">${money(o.total)}</b></p></div>`;
+ $("xBtn").onclick=()=>$("dlg").close();$("dlg").showModal();
+}
+
+/* ===== CLICKS ===== */
+$("view").onclick=async e=>{
+ const t=s=>e.target.closest(s);
+ if(t("[data-open]"))return go(t("[data-open]").dataset.open);
+ if(t("[data-edit]"))return openForm(view,t("[data-edit]").dataset.edit);
+ if(t("#addBtn"))return openForm(view);
+ if(t("[data-view]"))return orderDetail(t("[data-view]").dataset.view);
+ const d=t("[data-del]");
+ if(d&&confirm("Is product ko delete karna hai?")){try{await deleteDoc(doc(db,"products",d.dataset.del));toast("Product deleted")}catch(x){toast("Delete nahi hua")}}
+ const o=t("[data-delo]");
+ if(o&&confirm("Is order ko delete karna hai?")){try{await deleteDoc(doc(db,"orders",o.dataset.delo));toast("Order deleted")}catch(x){toast("Delete nahi hua")}}
+};
+$("view").onchange=async e=>{
+ const s=e.target.closest("[data-st]");
+ if(s){try{await updateDoc(doc(db,"orders",s.dataset.st),{status:s.value});toast("Status: "+s.value)}catch(x){toast("Status update nahi hua")}}
+};
+
+/* ===== PRODUCT FORM ===== */
+function openForm(c,id){
+ const k=CFG[c],p=id?products.find(x=>x.id===id):{};
+ img=p.image||"";
+ $("form").innerHTML=`
+ <div class="mh"><h2>${id?"Edit":"Add"} ${c==="beauty"?"beauty product":"clothing item"}</h2><button class="x" type="button" id="xBtn" aria-label="Close">×</button></div>
+ <div class="mb"><input type="hidden" id="f-id" value="${id||""}">
+  <label for="f-name">Product name</label><input id="f-name" required value="${esc(p.name)}" placeholder="${c==="beauty"?"e.g. Professional Hair Scissors":"e.g. Men's Leather Jacket"}">
+  <div class="grid2">
+   <div><label for="f-type">Type</label><select id="f-type">${k.types.map(t=>`<option ${p.type===t?"selected":""}>${t}</option>`).join("")}</select></div>
+   <div><label for="f-mat">${k.detail}</label><input id="f-mat" value="${esc(p.material)}" placeholder="${k.ph}"></div>
+   <div><label for="f-price">Price ($)</label><input id="f-price" type="number" step="0.01" min="0" required value="${p.price??""}"></div>
+   <div><label for="f-old">Old price ($) <small>(discount ke liye)</small></label><input id="f-old" type="number" step="0.01" min="0" value="${p.old??""}"></div>
+   <div><label for="f-stock">Stock quantity</label><input id="f-stock" type="number" min="0" required value="${p.stock??10}"></div>
+   <div><label for="f-vis">Store par dikhayein?</label><select id="f-vis"><option value="1">Yes – visible</option><option value="0" ${p.visible===false?"selected":""}>No – hidden</option></select></div>
+   ${k.sizes?`<div><label for="f-color">Color</label><input id="f-color" value="${esc(p.color)}" placeholder="e.g. Black"></div>`:""}
+  </div>
+  ${k.sizes?`<label>Available sizes</label><div class="chips">${k.sizes.map(z=>`<label><input type="checkbox" name="sz" value="${z}" ${(p.sizes||[]).includes(z)?"checked":""}>${z}</label>`).join("")}</div>`:""}
+  <label for="f-desc">Description</label><textarea id="f-desc" placeholder="Short product details...">${esc(p.desc)}</textarea>
+  <label for="f-file">Product picture (upload)</label><input id="f-file" type="file" accept="image/*">
+  <label for="f-url">...ya image link (URL)</label><input id="f-url" value="${p.image&&!p.image.startsWith("data:")?esc(p.image):""}" placeholder="https://...">
+  <img class="prev" id="prev" alt="Preview" ${img?`src="${esc(img)}"`:'style="visibility:hidden"'}></div>
+ <div class="mf"><button class="btn ghost" type="button" id="cancelBtn">Cancel</button><button class="btn" type="submit" id="saveBtn">${id?"Update product":"Save product"}</button></div>`;
+ $("xBtn").onclick=$("cancelBtn").onclick=()=>$("dlg").close();
+ $("f-file").onchange=e=>resize(e.target.files[0]);
+ $("f-url").oninput=e=>{const v=e.target.value.trim();if(v){setImg(v);$("f-file").value=""}};
+ $("form").onsubmit=ev=>{ev.preventDefault();submit(c)};
+ $("dlg").showModal();
+}
+function setImg(s){img=s;const p=$("prev");p.src=s||"";p.style.visibility=s?"visible":"hidden"}
+function resize(f){
+ if(!f)return;const r=new FileReader();
+ r.onload=()=>{const im=new Image();im.onload=()=>{
+  const s=Math.min(1,640/Math.max(im.width,im.height)),cv=document.createElement("canvas");
+  cv.width=im.width*s;cv.height=im.height*s;cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);
+  setImg(cv.toDataURL("image/jpeg",.75));$("f-url").value="";
+ };im.src=r.result};r.readAsDataURL(f);
+}
+async function submit(c){
+ if(!img)return toast("Pehle product ki picture add karein");
+ if(img.length>900000)return toast("Picture bohat bari hai, chhoti picture chunen");
+ const price=parseFloat($("f-price").value),old=parseFloat($("f-old").value);
+ const d={cat:c,name:$("f-name").value.trim(),type:$("f-type").value,material:$("f-mat").value.trim(),
+  price,old:isNaN(old)?price:old,stock:parseInt($("f-stock").value)||0,visible:$("f-vis").value==="1",desc:$("f-desc").value.trim(),
+  sizes:[...document.querySelectorAll('input[name="sz"]:checked')].map(x=>x.value),
+  color:$("f-color")?$("f-color").value.trim():"",image:img};
+ const id=$("f-id").value;$("saveBtn").disabled=true;
+ try{
+  if(id)await updateDoc(doc(db,"products",id),d);else await addDoc(collection(db,"products"),{...d,createdAt:serverTimestamp()});
+  $("dlg").close();toast(id?"Product updated":"Product added");
+ }catch(x){toast("Save nahi hua. Firestore rules aur login check karein.");}
+ $("saveBtn").disabled=false;
+}
+</script>
+</body>
+</html>
