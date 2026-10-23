@@ -549,6 +549,27 @@ function loadAdminHomeBanners() {
 }
 
 loadAdminHomeBanners();
+  /* Load category pictures saved from Admin */
+function loadCategoryPictures() {
+  try {
+    const home = JSON.parse(localStorage.getItem("zabish_home") || "{}");
+
+    document.querySelectorAll("img[data-home-tile]").forEach(img => {
+      const key = img.dataset.homeTile;
+      if (home[key]) {
+        img.src = home[key];
+      }
+    });
+  } catch (error) {
+    console.error("Could not load category pictures:", error);
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", loadCategoryPictures);
+} else {
+  loadCategoryPictures();
+}
 
 $("year").textContent=new Date().getFullYear();
 renderProducts();
